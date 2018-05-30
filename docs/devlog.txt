@@ -54,6 +54,12 @@ yyyy-mm-dd
 <Member> :: <Thing member did.>
 <Member> :: <Thing member did.>
 ==============================================================
+2018-05-29
+--------------------------------------------------------------
+Clara :: All worked together to brainstorm structure of classes, and received advice from Mr. Brown to find a .csv file from which data could be received for train stations. A good .csv file has yet to be found.
+Rohan :: ""
+Soojin :: ""
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2018-05-28
 --------------------------------------------------------------
@@ -62,21 +68,21 @@ Rohan :: Worked on proposal
 Soojin :: Worked on proposal
 ==============================================================
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-2018-02-27
+2018-05-27
 --------------------------------------------------------------
 Clara :: Brainstormed on project idea
 Rohan :: Brainstormed on project idea
 Soojin :: Brainstormed on project idea
 ==============================================================
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-2018-02-25
+2018-05-25
 --------------------------------------------------------------
 Clara :: Brainstormed on project idea
 Rohan :: Created GitHub repo (and added to Google Form) and brainstormed on project idea
 Soojin :: Brainstormed on project idea
 ==============================================================
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-2018-02-20
+2018-05-20
 --------------------------------------------------------------
 Clara :: Formed trio
 Rohan :: Formed trio and filled out Google Form
