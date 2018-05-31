@@ -13,7 +13,7 @@ Most Crucial Jobs:
 Core Functionality: 
 1. Having Stations, and SubwayLines that are connected to each other through certain Stations (which can be viewed as nodes).
 2. Having a functional depth-first and backtracking algorithm that determines the best path between two points. In the most simple version, the best path means that path that requires the fewest stops. To calculate time between two stations, we can in a simple version assume that travelling from one Station to another is two minutes, and then return the travel time.
-3. Taking user input to identify the start and end point
+3. Taking user input to identify the start and end nodes (stations)
 
 
 Non-Essential: 
@@ -24,7 +24,7 @@ Non-Essential:
 Tasks that can be delegated:
 * Data processing so that the csv can be converted into Stations
 * Adding a travel time
-* Adding SubwayLines
+* Adding SubwayLines and fixing data from CSV file
 * Other features that could be added upon core functionality is attained
 Tasks that must be collaboratively tackled: 
 * The structure of the classes that will be creating must be agreed upon collectively, and still needs some thought.
@@ -39,5 +39,6 @@ Timeline:
 * Other cool features can be added.
 
 
-We think that this accommodates setbacks and course changes because we are starting with the more simple tasks, and then building up. If we will need to make any major changes to data structures, then at least we will have the building blocks put together. 
+We think that this accommodates setbacks and course changes because we are starting with the more simple tasks, and then building up. If we will need to make any major changes to data structures, then at least we will have the building blocks put together. We should have enough time before the due date to be able to address any concerns that may come up.
+
 In the timeline, every bullet point is a prerequisite for the next.
