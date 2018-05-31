@@ -5,11 +5,13 @@ Class Station simulates a singular train station
 public class Station{
 
     //instance vars: 
-    String name;
-    String line; //could be number of letter, but as a String
-    double xcor;
-    double ycor;
-    boolean terminus; //true if it is the endpoint of a train line
+    String _name;
+    String _line; //could be number of letter, but as a String
+    double _xcor;
+    double _ycor;
+    Station _next;
+    Station _prev;
+    boolean _terminus; //true if it is the endpoint of a train line
     int borough; /*boroughs: 
 		   1: Brooklyn
 		   2: Bronx
@@ -27,4 +29,19 @@ public class Station{
     public boolean isTerminus(){
 	return terminus;
     }
+    public Station getNext(){
+	return _next;
+    }
+    public Station getPrev(){
+	return _prev;
+    }
+    //mutators
+    public void setNext(Station next){
+	_next = next;
+    }
+    public void setPrev(Station prev){
+	_prev = prev;
+    }
+   
+	
 }
