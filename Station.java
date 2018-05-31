@@ -9,38 +9,31 @@ public class Station{
     String _line; //could be number of letter, but as a String
     double _xcor;
     double _ycor;
-    Station _next;
-    Station _prev;
     boolean _terminus; //true if it is the endpoint of a train line
-    int borough; /*boroughs: 
+    int _borough; /*boroughs: 
 		   1: Brooklyn
 		   2: Bronx
 		   3: Manhattan
 		   4: Queens
 		   (Staten Island not included)*/
-
+    //constructor
+    public Station(String name, String line, double xcor, double ycor, boolean terminus, int borough){
+	_name = name;
+	_line = line;
+	_xcor = xcor;
+	_ycor = ycor;
+	_terminus = terminus;
+	_borough = borough;
+    }
     //accessors: 
     public String getName(){
-	return name;
+	return _name;
     }
     public String getLine(){
-	return line;
+	return _line;
     }
     public boolean isTerminus(){
-	return terminus;
-    }
-    public Station getNext(){
-	return _next;
-    }
-    public Station getPrev(){
-	return _prev;
-    }
-    //mutators
-    public void setNext(Station next){
-	_next = next;
-    }
-    public void setPrev(Station prev){
-	_prev = prev;
+	return _terminus;
     }
    
 	
