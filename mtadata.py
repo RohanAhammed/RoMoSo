@@ -39,6 +39,14 @@ def rmCol(num):
         csv[ctr] = csv[ctr][0:num]+ csv[ctr][num + 1:]
         ctr += 1
 
+
+def makeFloat(col):
+    ctr = 1
+    while ctr < len(csv):
+        csv[ctr][col] = float(csv[ctr][col])
+        ctr += 1
+
+
 rmCol(0)
 rmCol(0)
 rmCol(0)
@@ -46,6 +54,8 @@ rmCol(0)
 rmCol(0)
 rmCol(3)
 print(csv[:5])
+makeFloat(4)
+makeFloat(3)
 
 for i in csv:
     try: 
@@ -53,3 +63,6 @@ for i in csv:
             print i
     except:
         pass
+
+
+
