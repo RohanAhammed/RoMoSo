@@ -9,7 +9,7 @@ Transit Reccomendations
 
 
 
-/////////// Zone of Reflection \\\\\\\\\\\\
+/////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,15 +56,21 @@ yyyy-mm-dd
 ==============================================================
 2018-05-31
 --------------------------------------------------------------
-Clara :: Found an appropriate csv that lists stations in the order in which they stop.sRelearned some Python, and atarted a .py file that would process the data for the .csv. Was able to extract data for only the 6 line, for example, and removed unnecessary information from the csv. 
-Rohan ::
-Soojin ::
+Clara :: Found an appropriate csv that lists stations in the order in which they stop. Relearned some Python, and atarted a .py file that would process the data for the .csv. Was able to extract data for only the 6 line, for example, and removed unnecessary information from the csv. Helped develop algo. 
+Rohan :: Worked on creating a list of steps and Created flowchart based on fleshed out algo.
+Soojin :: Created UML diagram based on existing class files and plan. Helped devlog algo.
+==============================================================
+2018-05-30
+--------------------------------------------------------------
+Clara :: Worked on forming concrete plan. 
+Rohan :: Worked on forming concrete plan. Found a somewhat suitable working csv file of stations.
+Soojin :: Worked on forming concrete plan.
 ==============================================================
 2018-05-29
 --------------------------------------------------------------
 Clara :: All worked together to brainstorm structure of classes, and received advice from Mr. Brown to find a .csv file from which data could be received for train stations. A good .csv file has yet to be found.
-Rohan :: ""
-Soojin :: ""
+Rohan :: Worked together to figure out structure of classes.
+Soojin :: Worked together to figure out structure of classes.
 ==============================================================
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 2018-05-28
