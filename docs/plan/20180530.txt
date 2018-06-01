@@ -1,0 +1,43 @@
+﻿Priorities for Core Functionality:
+* Station is able to get data and represent it 
+* A SubwayLine which links stations
+* Able to take user input and locate that station. Find the fastest route to the destination. 
+
+
+Most Crucial Jobs:
+1. One of the most crucial jobs is to find an appropriate csv file that contains information that we deem necessary to have. This means that we want a csv file that contains the station name, the name of the subway lines that stop there, the geographic coordinates of a station, and the adjacent stations. We will need to be able to extract one subway line at a time (using code) from this csv, and then be able to make each station into a Station object. 
+2. We are using a depth-first and backtracking algorithm to find the best path between two stations. We will need to write code that can navigate from one Station to the next, and evaluates the shortest path. 
+3. We need to find a way of connecting SubwayLines to each other at certain Stations. 
+
+
+Core Functionality: 
+1. Having Stations, and SubwayLines that are connected to each other through certain Stations (which can be viewed as nodes).
+2. Having a functional depth-first and backtracking algorithm that determines the best path between two points. In the most simple version, the best path means that path that requires the fewest stops. To calculate time between two stations, we can in a simple version assume that travelling from one Station to another is two minutes, and then return the travel time.
+3. Taking user input to identify the start and end point
+
+
+Non-Essential: 
+1. We can factor in a number of variables such as geographic coordinates and borough to determine a more realistic travel time between two points.
+2. We can add as many SubwayLines as possible (we are starting off with only a few).
+
+
+Tasks that can be delegated:
+* Data processing so that the csv can be converted into Stations
+* Adding a travel time
+* Adding SubwayLines
+* Other features that could be added upon core functionality is attained
+Tasks that must be collaboratively tackled: 
+* The structure of the classes that will be creating must be agreed upon collectively, and still needs some thought.
+* Finding the best csv file
+* Writing the depth-first and backtracking algorithm
+Timeline: 
+* By tomorrow, we would like to have found the optimal csv file. 
+* Once the Station class is deemed workable, then we will try spending about a day or two on putting the stations into Station objects to contain information
+* Once this prerequisite is completed, then we will build SubwayLines, which will have an array of Stations that are linked. Methods like getNext() and getPrev() will need to be made.
+* We will need to find a way of linking subway stations on different lines, but after that then we can begin our depth-first and backtracking algorithm to find the best path.
+* Once this is functional, then we will work on the user-interface part of our project. The user should be able to select a start station and an end station, and receive an estimate of how much time traveling should take.
+* Other cool features can be added.
+
+
+We think that this accommodates setbacks and course changes because we are starting with the more simple tasks, and then building up. If we will need to make any major changes to data structures, then at least we will have the building blocks put together. 
+In the timeline, every bullet point is a prerequisite for the next.

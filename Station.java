@@ -9,7 +9,6 @@ public class Station{
     String _line; //could be number of letter, but as a String
     double _xcor;
     double _ycor;
-    //boolean _terminus; //true if it is the endpoint of a train line
     String _borough; /*boroughs: 
 		       Bx
 		       M
@@ -22,7 +21,6 @@ public class Station{
 	_line = line;
 	_xcor = xcor;
 	_ycor = ycor;
-	//_terminus = terminus;
 	_borough = borough;
     }
     //accessors: 
@@ -32,10 +30,6 @@ public class Station{
     public String getLine(){
 	return _line;
     }
-    /*    public boolean isTerminus(){
-	return _terminus;
-	}*/
-
 
     public static void main (String[] args){
 
