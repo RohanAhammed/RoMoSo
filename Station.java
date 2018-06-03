@@ -16,11 +16,11 @@ public class Station{
 		       Bk
 		       (Staten Island not included)*/
     //constructor
-    public Station(String name, String borough, String line, double xcor, double ycor){
+    public Station(String name, String borough, String line, String xcor, String ycor){
 	_name = name;
 	_line = line;
-	_xcor = xcor;
-	_ycor = ycor;
+	_xcor = Double.parseDouble(xcor);
+	_ycor = Double.parseDouble(ycor);
 	_borough = borough;
     }
     //accessors: 

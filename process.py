@@ -60,8 +60,8 @@ rmCol(0)
 rmCol(0)
 rmCol(3)
 #print(csv[:5])
-makeFloat(4)
-makeFloat(3)
+#makeFloat(4)
+#makeFloat(3)
 
 
 def printLine(line):
@@ -93,15 +93,14 @@ file = open("Driver.java", "w")
 s = "public class Driver{\n\tpublic static void main (String[] args){\n"
 file.write(s)
 
-def write(line):
-    ctr =1
+def write(line, name):
+    #name = "1"
     for i in csv:
         try:
             if i[2].index(line) >= 0:
                 file.write("\t\t")
                 file.write("Station ")
-                file.write(chr(ctr))
-                ctr += 1
+                file.write(name)
                 file.write("= new Station(")
                 s = ""
                 for x in i:
@@ -118,9 +117,11 @@ def write(line):
                 file.write("\n")                
         except: 
             pass
-    file.write("\t}\n")
-    file.write("}")
+
 
     
-write("1")
+write("1", "one")
+write("6", "six")
+file.write("\t}\n")
+file.write("}")
 file.close()
