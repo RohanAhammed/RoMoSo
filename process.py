@@ -99,7 +99,7 @@ s += "import java.util.LinkedList;\n"
 s += "public class Driver{\n\tpublic static void main (String[] args){\n"
 file.write(s)
 
-#method write takes arguments int line and string name
+#method write takes arguments string line and string name
 #it creates a LinkedList called name in Driver.java that contains Stations from line 
 def write(line, name):
     #construct new LinkedList:
