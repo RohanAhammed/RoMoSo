@@ -15,10 +15,13 @@ public class Station{
 		       Q
 		       Bk
 		       (Staten Island not included)*/
+    String _transfers; //indicates which other subway lines include this Station
+
     //constructor
-    public Station(String name, String borough, String line, String xcor, String ycor){
+    public Station(String id, String name, String borough, String line, String xcor, String ycor, String transfers){
 	_name = name;
 	_line = line;
+	_transfers = transfers;
 	_xcor = Double.parseDouble(xcor);
 	_ycor = Double.parseDouble(ycor);
 	_borough = borough;
@@ -30,15 +33,11 @@ public class Station{
     public String getLine(){
 	return _line;
     }
-
+    public String getTransfers(){
+	return _transfers;
+    }
     public static void main (String[] args){
-	/*
-	Station PBP = new Station("Pelham Bay Park", "Bx", "6", Double.parseDouble("40.852462"), Double.parseDouble("-73.828121"));   
-	Station B = new Station("Buhre Av", "Bx", "6", Double.parseDouble("40.84681"), Double.parseDouble("-73.832569"));
-	System.out.println(PBP.getName());
-	System.out.println(PBP.getLine());
 
-	*/
     }
 	
 }

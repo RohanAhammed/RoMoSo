@@ -55,12 +55,12 @@ def makeFloat(col):
 '''
 
 rmCol(0)
-rmCol(0)
-rmCol(0)
-rmCol(0)
-rmCol(0)
-rmCol(3)
-#print(csv[:5])
+rmCol(1)
+rmCol(1)
+rmCol(1)
+#rmCol(0)
+rmCol(4)
+print(csv[:5])
 #makeFloat(4)
 #makeFloat(3)
 
@@ -70,13 +70,16 @@ def printLine(line):
     print ("train:")
     for i in csv:
         try: 
-            if i[2].index(line) >= 0:
+            if i[3].index(line) >= 0:
                 print i
         except:
             pass
     print("=====================================================")
 
+
 printLine("6")
+print (csv[:5])
+'''
 printLine("L") #whack
 printLine("1") 
 printLine("7")
@@ -89,6 +92,24 @@ printLine("N")
 printLine("W")
 printLine("Q")
 printLine("S") #unconnected, different lines (maybe choose which shuttle?)
+'''
+
+#function transfersCol adds a column to the array that contains all the transfers that can be made at this station. This column contains arrays
+def transfersCols():
+    csv[0].append("Transfer Options")
+    ctr = 1
+    while (ctr < len(csv)):
+        arr = csv[ctr][3].split()
+        for i in csv:
+            if (i != csv[ctr] and i[0] == csv[ctr][0]):
+                arr.extend(i[3].split())
+        csv[ctr].append(arr)
+        print csv[ctr][1]
+        print (arr)
+        ctr += 1
+        
+transfersCols()
+print csv[:5]
 
 #create new file, named Driver.java:
 file = open("Driver.java", "w")
@@ -110,7 +131,7 @@ def write(line, name):
     #add all of the Stations:
     for i in csv:
         try:
-            if i[2].index(line) >= 0:
+            if i[3].index(line) >= 0:
                 file.write("\t\t")
                 file.write(name)
                 file.write(".add(")
@@ -118,8 +139,14 @@ def write(line, name):
                 s = ""
                 for x in i:
                     item = x
-                    if (x == i[2]):
-                        item = line
+                    if (x == i[3]):
+                        item = line #only want one line for this attribute
+                    if (x == i[6]):
+                        item = ""
+                        j = 0
+                        while (j < len(i[6])):
+                            item += i[6][j]
+                            j += 1
                     s += "\""
                     s += item
                     s += "\"" 
@@ -137,6 +164,7 @@ write("6", "six")
 write("C", "c")
 write("N", "n")
 write("7", "seven")
+write("L", "l")
 file.write("\t}\n")
 file.write("}")
 file.close()
