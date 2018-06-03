@@ -32,13 +32,13 @@ public class Station{
     }
 
     public static void main (String[] args){
-
+	/*
 	Station PBP = new Station("Pelham Bay Park", "Bx", "6", Double.parseDouble("40.852462"), Double.parseDouble("-73.828121"));   
 	Station B = new Station("Buhre Av", "Bx", "6", Double.parseDouble("40.84681"), Double.parseDouble("-73.832569"));
 	System.out.println(PBP.getName());
 	System.out.println(PBP.getLine());
 
-	
+	*/
     }
 	
 }
