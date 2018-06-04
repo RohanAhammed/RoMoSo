@@ -4,8 +4,7 @@ Class Station simulates a singular train station
 
 public class Station{
 
-    //instance vars:
-    String _stationId;
+    //instance vars: 
     String _name;
     String _line; //could be number of letter, but as a String
     double _xcor;
@@ -20,7 +19,6 @@ public class Station{
 
     //constructor
     public Station(String id, String name, String borough, String line, String xcor, String ycor, String transfers){
-	_stationId = id;
 	_name = name;
 	_line = line;
 	_transfers = transfers;
