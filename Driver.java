@@ -860,6 +860,6 @@ public class Driver{
 		g.add(new Station("290", "Classon Av", "Bk", "G", "40.688873", "-73.96007", "G"));
 		g.add(new Station("291", "Clinton - Washington Avs", "Bk", "G", "40.688089", "-73.966839", "G"));
 		g.add(new Station("292", "Fulton St", "Bk", "G", "40.687119", "-73.975375", "G"));
-		f.add(new Station("243", "Church Av", "Bk", "G", "40.644041", "-73.979678", "FG"));
+		g.add(new Station("243", "Church Av", "Bk", "G", "40.644041", "-73.979678", "FG"));
 	}
 }
