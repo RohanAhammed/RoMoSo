@@ -11,14 +11,11 @@ public class SubwayLine{
     LinkedList<Station> _stops;
 
     //constructor: 
-    public SubwayLine(String line){
+    public SubwayLine(LinkedList<Station> stops){
 	_line = line;
-	_stops = new LinkedList<Station>();
+	_stops = stops;
     }//end constructor
 
     //methods:
-    public void add(Station x){
-	_stops.add(x);
-    }
     
 }
