@@ -115,7 +115,7 @@ print csv[:5]
 file = open("Driver.java", "w")
 #heading:
 s = "/*\nRoMoSo\nClara Mohri, Rohan Ahammed, Soojin Choi\n*/\n"
-s += "//This file has been written by the Python file process.py\n\n"
+s += "//This file has been written by the Python file process.py\n//A few manual alterations have been made to ensure that stations are in order\n"
 s += "import java.util.LinkedList;\n"
 s += "public class Driver{\n\tpublic static void main (String[] args){\n"
 file.write(s)
@@ -158,13 +158,40 @@ def write(line, name):
         except: 
             pass
 
-    
+#MTA lines
+#sorry Staten Island, sorry S train users. (It's not you, it's us)
+
+#red line    
 write("1", "one")
+write("2", "two")
+write("3", "three")
+#green line
+write("4", "four")
+write("5", "five")
 write("6", "six")
-write("C", "c")
-write("N", "n")
+#seven line
 write("7", "seven")
+#blue line
+write("A", "a")
+write("C", "c")
+write("E", "e")
+#orange line
+write("B", "b")
+write("D", "d")
+write("F", "f")
+write("M", "m")
+#brown line
+write("J", "j")
+write("Z", "z")
+#yellow line
+write("N", "n")
+write("Q", "q")
+write("R", "r")
+write("W", "w")
+#L train
 write("L", "l")
+#G train
+write("G", "g")
 file.write("\t}\n")
 file.write("}")
 file.close()
