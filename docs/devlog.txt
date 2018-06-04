@@ -56,20 +56,20 @@ yyyy-mm-dd
 2018-06-03
 --------------------------------------------------------------
 Clara :: Added a transfers instance variable to Station so that it will be easier to check whether transfers can be made at a Station. This instance variable is a string with the lines to which transfers can be made at the Station. This required changes to Station, Station's constructor, and the python code. Stations at which transfers can be made are identified by whether they have the same station complex according to the csv, so the csv had to be processed differently and a column to the csv was added for every row in which there is a list of all the transfers possible.
-Rohan ::
-Soojin ::
+Rohan :: Continued to work on driver file and user input. Discussed the purpose of SubwayLine and class designs.
+Soojin :: Updated plan and discussed designs of classes.
 ==============================================================
 2018-06-02
 --------------------------------------------------------------
 Clara :: Worked on python code to create an output file of java. Made decisions about how the constructor of Station should be formatted, and started questioning whether SubwayLine was a necessary class
-Rohan ::
-Soojin ::
+Rohan :: Worked on driver and figuring out user inputs. Added cs1 dir into repo.
+Soojin :: Worked on updating uml and flowchart diagrams
 ==============================================================
 2018-06-01
 --------------------------------------------------------------
 Clara :: All worked together in class on data structures for project. 
-Rohan ::
-Soojin ::
+Rohan :: All worked together in class on data structures for project. 
+Soojin :: All worked together in class on data structures for project. 
 ==============================================================
 2018-05-31
 --------------------------------------------------------------
