@@ -15,6 +15,20 @@ Most Crucial Jobs:
 2. We need to find a way of connecting SubwayLines to each other at certain Stations.
 
 
+The user is asked to input a start station. User enters first the subway line that they wish to begin at (a list of options is displayed), and then a numbered list of the subway stations on this line will appear. They enter the number, and this will correspond to their start station. 
+The same will happen to determine the destination station.
+
+Then, a depth first algorithm will run: 
+
+Depth first Algo:
+- If the next Station is null and current Station is not the destination or the departure station, stop. 
+- If current# of stops < min# of stops, stop.
+- If current station is destination, current# of stops = min # of stops. Stop.
+- Call this method on all possible next stations (use search method to find station in other SubwayLines) with current# of stops +=1. 
+- Also, recursive: solving from the next possible spot, unless that spot is a disqualifier such as it has already been visited.
+
+
+
 Core Functionality: 
 1. Having Stations, and SubwayLines that are connected to each other through certain Stations (which can be viewed as nodes).
 2. Having a functional depth-first and backtracking algorithm that determines the best path between two points. In the most simple version, the best path means that path that requires the fewest stops. To calculate time between two stations, we can in a simple version assume that travelling from one Station to another is two minutes, and then return the travel time.
