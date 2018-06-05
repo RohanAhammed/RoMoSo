@@ -4,14 +4,14 @@ Clara Mohri, Rohan Ahammed, Soojin Choi
 */
 //This file has been written by the Python file process.py
 //A few manual alterations have been made to ensure that stations are in order
-//Afterwards, we made the decision to have this in the form a class called Subway Map where all of the subway lines are a linked list. Some of the python code has been altered, but we could not rewrite the python script because this would change the order of the stations, setting us back.
+//Afterwards, we made the decision to have this in the form a class called Subway Map where all of the subway lines are a linked list. Some of the python code has been altered, but we could not rewrite the Python script because this would change the order of the stations, setting us back.
 
 
 import java.util.LinkedList;
 
 public class Driver{
 
-    //instance vars are the lines:
+    //instance vars are the different lines:
     LinkedList<Station> one, two, three, four, five, six, seven, a, c, e, b, d, f, m, n, q, r, w, j, z, l, g;
 
     public Driver(){
@@ -414,7 +414,8 @@ public class Driver{
 		e.add(new Station("169", "Canal St", "M", "E", "40.720824", "-74.005229", "ACE"));
 		e.add(new Station("624", "World Trade Center", "M", "E", "40.712582", "-74.009781", "EAC23"));
 
-		//not in order
+		//order fixed
+		//Cathedral Pkwy is closed until Sept 2018
 		b = new LinkedList<Station>();
 		b.add(new Station("211", "Bedford Park Blvd", "Bx", "B", "40.873244", "-73.887138", "BD"));
 		b.add(new Station("212", "Kingsbridge Rd", "Bx", "B", "40.866978", "-73.893509", "BD"));
@@ -448,7 +449,10 @@ public class Driver{
 		b.add(new Station("617", "Atlantic Av - Barclays Ctr", "Bk", "B", "40.68446", "-73.97689", "BQDNR2345"));
 		b.add(new Station("41", "7 Av", "Bk", "B", "40.67705", "-73.972367", "BQ"));
 		b.add(new Station("42", "Prospect Park", "Bk", "B", "40.661614", "-73.962246", "BQ"));
+		/* 
+		   This is a Q station
 		b.add(new Station("43", "Parkside Av", "Bk", "B", "40.655292", "-73.961495", "BQ"));
+		*/
 		b.add(new Station("44", "Church Av", "Bk", "B", "40.650527", "-73.962982", "BQ"));
 		b.add(new Station("47", "Newkirk Plaza", "Bk", "B", "40.635082", "-73.962793", "BQ"));
 		b.add(new Station("51", "Kings Hwy", "Bk", "B", "40.60867", "-73.957734", "BQ"));
@@ -468,7 +472,7 @@ public class Driver{
 		*/
 		b.add(new Station("55", "Brighton Beach", "Bk", "B", "40.577621", "-73.961376", "BQ"));
 		
-		//somewhat out of order
+		//order fixed
 		d = new LinkedList<Station>();
 		//d.add(new Station("Complex ID", "Stop Name", "Borough", "D", "GTFS Latitude", "GTFS Longitude", "Transfer Options"));
 		d.add(new Station("210", "Norwood - 205 St", "Bx", "D", "40.874811", "-73.878855", "D"));
