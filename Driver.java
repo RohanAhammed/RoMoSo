@@ -4,82 +4,88 @@ Clara Mohri, Rohan Ahammed, Soojin Choi
 */
 //This file has been written by the Python file process.py
 //A few manual alterations have been made to ensure that stations are in order
+//Afterwards, we made the decision to have this in the form a class called Subway Map where all of the subway lines are a linked list. Some of the python code has been altered, but we could not rewrite the python script because this would change the order of the stations, setting us back.
+
 
 import java.util.LinkedList;
+
 public class Driver{
-	public static void main (String[] args){
 
-	    
-	        LinkedList<Station> one = new LinkedList<Station>();
-		one.add(new Station("293", "Van Cortlandt Park - 242 St", "Bx", "1", "40.889248", "-73.898583", "1"));
-		one.add(new Station("294", "238 St", "Bx", "1", "40.884667", "-73.90087", "1"));
-		one.add(new Station("295", "231 St", "Bx", "1", "40.878856", "-73.904834", "1"));
-		one.add(new Station("296", "Marble Hill - 225 St", "M", "1", "40.874561", "-73.909831", "1"));
-		one.add(new Station("297", "215 St", "M", "1", "40.869444", "-73.915279", "1"));
-		one.add(new Station("298", "207 St", "M", "1", "40.864621", "-73.918822", "1"));
-		one.add(new Station("299", "Dyckman St", "M", "1", "40.860531", "-73.925536", "1"));
-		one.add(new Station("300", "191 St", "M", "1", "40.855225", "-73.929412", "1"));
-		one.add(new Station("301", "181 St", "M", "1", "40.849505", "-73.933596", "1"));
-		one.add(new Station("605", "168 St - Washington Hts", "M", "1", "40.840556", "-73.940133", "1AC"));
-		one.add(new Station("303", "157 St", "M", "1", "40.834041", "-73.94489", "1"));
-		one.add(new Station("304", "145 St", "M", "1", "40.826551", "-73.95036", "1"));
-		one.add(new Station("305", "137 St - City College", "M", "1", "40.822008", "-73.953676", "1"));
-		one.add(new Station("306", "125 St", "M", "1", "40.815581", "-73.958372", "1"));
-		one.add(new Station("307", "116 St - Columbia University", "M", "1", "40.807722", "-73.96411", "1"));
-		one.add(new Station("308", "Cathedral Pkwy", "M", "1", "40.803967", "-73.966847", "1"));
-		one.add(new Station("309", "103 St", "M", "1", "40.799446", "-73.968379", "1"));
-		one.add(new Station("310", "96 St", "M", "1", "40.793919", "-73.972323", "123"));
-		one.add(new Station("311", "86 St", "M", "1", "40.788644", "-73.976218", "1"));
-		one.add(new Station("312", "79 St", "M", "1", "40.783934", "-73.979917", "1"));
-		one.add(new Station("313", "72 St", "M", "1", "40.778453", "-73.98197", "123"));
-		one.add(new Station("314", "66 St - Lincoln Center", "M", "1", "40.77344", "-73.982209", "1"));
-		one.add(new Station("614", "59 St - Columbus Circle", "M", "1", "40.768247", "-73.981929", "1ABCD"));
-		one.add(new Station("316", "50 St", "M", "1", "40.761728", "-73.983849", "1"));
-		one.add(new Station("611", "Times Sq - 42 St", "M", "1", "40.75529", "-73.987495", "123NQRWACE7S"));
-		one.add(new Station("318", "34 St - Penn Station", "M", "1", "40.750373", "-73.991057", "123"));
-		one.add(new Station("319", "28 St", "M", "1", "40.747215", "-73.993365", "1"));
-		one.add(new Station("320", "23 St", "M", "1", "40.744081", "-73.995657", "1"));
-		one.add(new Station("321", "18 St", "M", "1", "40.74104", "-73.997871", "1"));
-		one.add(new Station("601", "14 St", "M", "1", "40.737826", "-74.000201", "123LFM"));
-		one.add(new Station("323", "Christopher St - Sheridan Sq", "M", "1", "40.733422", "-74.002906", "1"));
-		one.add(new Station("324", "Houston St", "M", "1", "40.728251", "-74.005367", "1"));
-		one.add(new Station("325", "Canal St", "M", "1", "40.722854", "-74.006277", "1"));
-		one.add(new Station("326", "Franklin St", "M", "1", "40.719318", "-74.006886", "1"));
-		one.add(new Station("327", "Chambers St", "M", "1", "40.715478", "-74.009266", "123"));
-		one.add(new Station("328", "Cortlandt St", "M", "1", "40.711835", "-74.012188", "1"));
-		one.add(new Station("329", "Rector St", "M", "1", "40.707513", "-74.013783", "1"));
-		one.add(new Station("635", "South Ferry", "M", "1", "40.702068", "-74.013664", "1RW"));
+    //instance vars are the lines:
+    LinkedList<Station> one, two, three, four, five, six, seven, a, c, e, b, d, f, m, n, q, r, w, j, z, l, g;
 
-		//had to swap two sections to make two train in order
-		LinkedList<Station> two = new LinkedList<Station>();
-		two.add(new Station("416", "Wakefield - 241 St", "Bx", "2", "40.903125", "-73.85062", "2"));
-		two.add(new Station("417", "Nereid Av", "Bx", "2", "40.898379", "-73.854376", "25"));
-		two.add(new Station("418", "233 St", "Bx", "2", "40.893193", "-73.857473", "25"));
-		two.add(new Station("419", "225 St", "Bx", "2", "40.888022", "-73.860341", "25"));
-		two.add(new Station("420", "219 St", "Bx", "2", "40.883895", "-73.862633", "25"));
-		two.add(new Station("421", "Gun Hill Rd", "Bx", "2", "40.87785", "-73.866256", "25"));
-		two.add(new Station("422", "Burke Av", "Bx", "2", "40.871356", "-73.867164", "25"));
-		two.add(new Station("423", "Allerton Av", "Bx", "2", "40.865462", "-73.867352", "25"));
-		two.add(new Station("424", "Pelham Pkwy", "Bx", "2", "40.857192", "-73.867615", "25"));
-		two.add(new Station("425", "Bronx Park East", "Bx", "2", "40.848828", "-73.868457", "25"));
-		two.add(new Station("426", "E 180 St", "Bx", "2", "40.841894", "-73.873488", "25"));
-		two.add(new Station("427", "West Farms Sq - E Tremont Av", "Bx", "2", "40.840295", "-73.880049", "25"));
-		two.add(new Station("428", "174 St", "Bx", "2", "40.837288", "-73.887734", "25"));
-		two.add(new Station("429", "Freeman St", "Bx", "2", "40.829993", "-73.891865", "25"));
-		two.add(new Station("430", "Simpson St", "Bx", "2", "40.824073", "-73.893064", "25"));
-		two.add(new Station("431", "Intervale Av", "Bx", "2", "40.822181", "-73.896736", "25"));
-		two.add(new Station("432", "Prospect Av", "Bx", "2", "40.819585", "-73.90177", "25"));
-		two.add(new Station("433", "Jackson Av", "Bx", "2", "40.81649", "-73.907807", "25"));
-		two.add(new Station("434", "3 Av - 149 St", "Bx", "2", "40.816109", "-73.917757", "25"));
-		two.add(new Station("603", "149 St - Grand Concourse", "Bx", "2", "40.81841", "-73.926718", "254"));
-		two.add(new Station("438", "135 St", "M", "2", "40.814229", "-73.94077", "23"));
-		two.add(new Station("439", "125 St", "M", "2", "40.807754", "-73.945495", "23"));
-		two.add(new Station("440", "116 St", "M", "2", "40.802098", "-73.949625", "23"));
-		two.add(new Station("441", "Central Park North (110 St)", "M", "2", "40.799075", "-73.951822", "23"));
-		two.add(new Station("310", "96 St", "M", "2", "40.793919", "-73.972323", "123"));
-		two.add(new Station("313", "72 St", "M", "2", "40.778453", "-73.98197", "123"));
-		two.add(new Station("611", "Times Sq - 42 St", "M", "2", "40.75529", "-73.987495", "123NQRWACE7S"));
-		two.add(new Station("318", "34 St - Penn Station", "M", "2", "40.750373", "-73.991057", "123"));
+    public Driver(){
+	
+	one = new LinkedList<Station>();
+	one.add(new Station("293", "Van Cortlandt Park - 242 St", "Bx", "1", "40.889248", "-73.898583", "1"));
+	one.add(new Station("294", "238 St", "Bx", "1", "40.884667", "-73.90087", "1"));
+	one.add(new Station("295", "231 St", "Bx", "1", "40.878856", "-73.904834", "1"));
+	one.add(new Station("296", "Marble Hill - 225 St", "M", "1", "40.874561", "-73.909831", "1"));
+	one.add(new Station("297", "215 St", "M", "1", "40.869444", "-73.915279", "1"));
+	one.add(new Station("298", "207 St", "M", "1", "40.864621", "-73.918822", "1"));
+	one.add(new Station("299", "Dyckman St", "M", "1", "40.860531", "-73.925536", "1"));
+	one.add(new Station("300", "191 St", "M", "1", "40.855225", "-73.929412", "1"));
+	one.add(new Station("301", "181 St", "M", "1", "40.849505", "-73.933596", "1"));
+	one.add(new Station("605", "168 St - Washington Hts", "M", "1", "40.840556", "-73.940133", "1AC"));
+	one.add(new Station("303", "157 St", "M", "1", "40.834041", "-73.94489", "1"));
+	one.add(new Station("304", "145 St", "M", "1", "40.826551", "-73.95036", "1"));
+	one.add(new Station("305", "137 St - City College", "M", "1", "40.822008", "-73.953676", "1"));
+	one.add(new Station("306", "125 St", "M", "1", "40.815581", "-73.958372", "1"));
+	one.add(new Station("307", "116 St - Columbia University", "M", "1", "40.807722", "-73.96411", "1"));
+	one.add(new Station("308", "Cathedral Pkwy", "M", "1", "40.803967", "-73.966847", "1"));
+	one.add(new Station("309", "103 St", "M", "1", "40.799446", "-73.968379", "1"));
+	one.add(new Station("310", "96 St", "M", "1", "40.793919", "-73.972323", "123"));
+	one.add(new Station("311", "86 St", "M", "1", "40.788644", "-73.976218", "1"));
+	one.add(new Station("312", "79 St", "M", "1", "40.783934", "-73.979917", "1"));
+	one.add(new Station("313", "72 St", "M", "1", "40.778453", "-73.98197", "123"));
+	one.add(new Station("314", "66 St - Lincoln Center", "M", "1", "40.77344", "-73.982209", "1"));
+	one.add(new Station("614", "59 St - Columbus Circle", "M", "1", "40.768247", "-73.981929", "1ABCD"));
+	one.add(new Station("316", "50 St", "M", "1", "40.761728", "-73.983849", "1"));
+	one.add(new Station("611", "Times Sq - 42 St", "M", "1", "40.75529", "-73.987495", "123NQRWACE7S"));
+	one.add(new Station("318", "34 St - Penn Station", "M", "1", "40.750373", "-73.991057", "123"));
+	one.add(new Station("319", "28 St", "M", "1", "40.747215", "-73.993365", "1"));
+	one.add(new Station("320", "23 St", "M", "1", "40.744081", "-73.995657", "1"));
+	one.add(new Station("321", "18 St", "M", "1", "40.74104", "-73.997871", "1"));
+	one.add(new Station("601", "14 St", "M", "1", "40.737826", "-74.000201", "123LFM"));
+	one.add(new Station("323", "Christopher St - Sheridan Sq", "M", "1", "40.733422", "-74.002906", "1"));
+	one.add(new Station("324", "Houston St", "M", "1", "40.728251", "-74.005367", "1"));
+	one.add(new Station("325", "Canal St", "M", "1", "40.722854", "-74.006277", "1"));
+	one.add(new Station("326", "Franklin St", "M", "1", "40.719318", "-74.006886", "1"));
+	one.add(new Station("327", "Chambers St", "M", "1", "40.715478", "-74.009266", "123"));
+	one.add(new Station("328", "Cortlandt St", "M", "1", "40.711835", "-74.012188", "1"));
+	one.add(new Station("329", "Rector St", "M", "1", "40.707513", "-74.013783", "1"));
+	one.add(new Station("635", "South Ferry", "M", "1", "40.702068", "-74.013664", "1RW"));
+	
+	//had to swap two sections to make two train in order
+	two = new LinkedList<Station>();
+	two.add(new Station("416", "Wakefield - 241 St", "Bx", "2", "40.903125", "-73.85062", "2"));
+	two.add(new Station("417", "Nereid Av", "Bx", "2", "40.898379", "-73.854376", "25"));
+	two.add(new Station("418", "233 St", "Bx", "2", "40.893193", "-73.857473", "25"));
+	two.add(new Station("419", "225 St", "Bx", "2", "40.888022", "-73.860341", "25"));
+	two.add(new Station("420", "219 St", "Bx", "2", "40.883895", "-73.862633", "25"));
+	two.add(new Station("421", "Gun Hill Rd", "Bx", "2", "40.87785", "-73.866256", "25"));
+	two.add(new Station("422", "Burke Av", "Bx", "2", "40.871356", "-73.867164", "25"));
+	two.add(new Station("423", "Allerton Av", "Bx", "2", "40.865462", "-73.867352", "25"));
+	two.add(new Station("424", "Pelham Pkwy", "Bx", "2", "40.857192", "-73.867615", "25"));
+	two.add(new Station("425", "Bronx Park East", "Bx", "2", "40.848828", "-73.868457", "25"));
+	two.add(new Station("426", "E 180 St", "Bx", "2", "40.841894", "-73.873488", "25"));
+	two.add(new Station("427", "West Farms Sq - E Tremont Av", "Bx", "2", "40.840295", "-73.880049", "25"));
+	two.add(new Station("428", "174 St", "Bx", "2", "40.837288", "-73.887734", "25"));
+	two.add(new Station("429", "Freeman St", "Bx", "2", "40.829993", "-73.891865", "25"));
+	two.add(new Station("430", "Simpson St", "Bx", "2", "40.824073", "-73.893064", "25"));
+	two.add(new Station("431", "Intervale Av", "Bx", "2", "40.822181", "-73.896736", "25"));
+	two.add(new Station("432", "Prospect Av", "Bx", "2", "40.819585", "-73.90177", "25"));
+	two.add(new Station("433", "Jackson Av", "Bx", "2", "40.81649", "-73.907807", "25"));
+	two.add(new Station("434", "3 Av - 149 St", "Bx", "2", "40.816109", "-73.917757", "25"));
+	two.add(new Station("603", "149 St - Grand Concourse", "Bx", "2", "40.81841", "-73.926718", "254"));
+	two.add(new Station("438", "135 St", "M", "2", "40.814229", "-73.94077", "23"));
+	two.add(new Station("439", "125 St", "M", "2", "40.807754", "-73.945495", "23"));
+	two.add(new Station("440", "116 St", "M", "2", "40.802098", "-73.949625", "23"));
+	two.add(new Station("441", "Central Park North (110 St)", "M", "2", "40.799075", "-73.951822", "23"));
+	two.add(new Station("310", "96 St", "M", "2", "40.793919", "-73.972323", "123"));
+	two.add(new Station("313", "72 St", "M", "2", "40.778453", "-73.98197", "123"));
+	two.add(new Station("611", "Times Sq - 42 St", "M", "2", "40.75529", "-73.987495", "123NQRWACE7S"));
+	two.add(new Station("318", "34 St - Penn Station", "M", "2", "40.750373", "-73.991057", "123"));
 		two.add(new Station("601", "14 St", "M", "2", "40.737826", "-74.000201", "123LFM"));
 		two.add(new Station("327", "Chambers St", "M", "2", "40.715478", "-74.009266", "123"));
 		two.add(new Station("624", "Park Pl", "M", "2", "40.713051", "-74.008811", "23ACE"));
@@ -103,7 +109,7 @@ public class Driver{
 		two.add(new Station("359", "Flatbush Av - Brooklyn College", "Bk", "2", "40.632836", "-73.947642", "25"));
 
 		//two sections of the three were out of order, had to swap these two sections
-		LinkedList<Station> three = new LinkedList<Station>();
+		three = new LinkedList<Station>();
 		three.add(new Station("436", "Harlem - 148 St", "M", "3", "40.82388", "-73.93647", "3"));
 		three.add(new Station("437", "145 St", "M", "3", "40.820421", "-73.936245", "3"));
 		three.add(new Station("438", "135 St", "M", "3", "40.814229", "-73.94077", "23"));
@@ -140,7 +146,7 @@ public class Driver{
 		three.add(new Station("352", "New Lots Av", "Bk", "3", "40.666235", "-73.884079", "3"));
 
 		//last two stations were at front, and barclays had to be added.
-		LinkedList<Station> four = new LinkedList<Station>();
+		four = new LinkedList<Station>();
 		four.add(new Station("378", "Woodlawn", "Bx", "4", "40.886037", "-73.878751", "4"));
 		four.add(new Station("379", "Mosholu Pkwy", "Bx", "4", "40.87975", "-73.884655", "4"));
 		four.add(new Station("380", "Bedford Park Blvd - Lehman College", "Bx", "4", "40.873412", "-73.890064", "4"));
@@ -172,7 +178,7 @@ public class Driver{
 		four.add(new Station("345", "Crown Hts - Utica Av", "Bk", "4", "40.668897", "-73.932942", "34"));
 
 		//Atlantic Avenue is missing on four and five
-		LinkedList<Station> five = new LinkedList<Station>();
+		five = new LinkedList<Station>();
 		five.add(new Station("442", "Eastchester - Dyre Av", "Bx", "5", "40.8883", "-73.830834", "5"));
 		five.add(new Station("443", "Baychester Av", "Bx", "5", "40.878663", "-73.838591", "5"));
 		five.add(new Station("444", "Gun Hill Rd", "Bx", "5", "40.869526", "-73.846384", "5"));
@@ -223,7 +229,7 @@ public class Driver{
 		five.add(new Station("425", "Bronx Park East", "Bx", "5", "40.848828", "-73.868457", "25"));*/
 
 		//in order thanks to process.py
-		LinkedList<Station> six = new LinkedList<Station>();
+		six = new LinkedList<Station>();
 		six.add(new Station("360", "Pelham Bay Park", "Bx", "6", "40.852462", "-73.828121", "6"));
 		six.add(new Station("361", "Buhre Av", "Bx", "6", "40.84681", "-73.832569", "6"));
 		six.add(new Station("362", "Middletown Rd", "Bx", "6", "40.843863", "-73.836322", "6"));
@@ -264,7 +270,7 @@ public class Driver{
 		six.add(new Station("622", "Brooklyn Bridge - City Hall", "M", "6", "40.713065", "-74.004131", "456JZ"));
 
 		//in order thanks to process.py
-		LinkedList<Station> seven = new LinkedList<Station>();
+		seven = new LinkedList<Station>();
 		seven.add(new Station("447", "Flushing - Main St", "Q", "7", "40.7596", "-73.83003", "7"));
 		seven.add(new Station("448", "Mets - Willets Point", "Q", "7", "40.754622", "-73.845625", "7"));
 		seven.add(new Station("449", "111 St", "Q", "7", "40.75173", "-73.855334", "7"));
@@ -289,7 +295,7 @@ public class Driver{
 		seven.add(new Station("471", "34 St - 11 Av", "M", "7", "40.755882", "-74.00191", "7"));
 
 		//in order thanks to process.py
-		LinkedList<Station> a = new LinkedList<Station>();
+		a = new LinkedList<Station>();
 		a.add(new Station("143", "Inwood - 207 St", "M", "A", "40.868072", "-73.919899", "A"));
 		a.add(new Station("144", "Dyckman St", "M", "A", "40.865491", "-73.927271", "A"));
 		a.add(new Station("145", "190 St", "M", "A", "40.859022", "-73.93418", "A"));
@@ -341,7 +347,7 @@ public class Driver{
 		a.add(new Station("209", "Far Rockaway - Mott Av", "Q", "A", "40.603995", "-73.755405", "A"));
 
 		//in order thanks to process.py
-		LinkedList<Station> c = new LinkedList<Station>();
+		c = new LinkedList<Station>();
 		c.add(new Station("605", "168 St", "M", "C", "40.840719", "-73.939561", "AC1"));
 		c.add(new Station("149", "163 St - Amsterdam Av", "M", "C", "40.836013", "-73.939892", "C"));
 		c.add(new Station("150", "155 St", "M", "C", "40.830518", "-73.941514", "C"));
@@ -384,7 +390,7 @@ public class Driver{
 		c.add(new Station("188", "Euclid Av", "Bk", "C", "40.675377", "-73.872106", "AC"));
 
 		//somewhat out of order, but now fixed
-		LinkedList<Station> e = new LinkedList<Station>();
+		e = new LinkedList<Station>();
 		e.add(new Station("278", "Jamaica Center - Parsons/Archer", "Q", "E", "40.702147", "-73.801109", "EJZ"));
 		e.add(new Station("279", "Sutphin Blvd - Archer Av - JFK Airport", "Q", "E", "40.700486", "-73.807969", "EJZ"));
 		e.add(new Station("280", "Jamaica - Van Wyck", "Q", "E", "40.702566", "-73.816859", "E"));
@@ -409,7 +415,7 @@ public class Driver{
 		e.add(new Station("624", "World Trade Center", "M", "E", "40.712582", "-74.009781", "EAC23"));
 
 		//not in order
-		LinkedList<Station> b = new LinkedList<Station>();
+		b = new LinkedList<Station>();
 		b.add(new Station("211", "Bedford Park Blvd", "Bx", "B", "40.873244", "-73.887138", "BD"));
 		b.add(new Station("212", "Kingsbridge Rd", "Bx", "B", "40.866978", "-73.893509", "BD"));
 		b.add(new Station("213", "Fordham Rd", "Bx", "B", "40.861296", "-73.897749", "BD"));
@@ -463,7 +469,7 @@ public class Driver{
 		b.add(new Station("55", "Brighton Beach", "Bk", "B", "40.577621", "-73.961376", "BQ"));
 		
 		//somewhat out of order
-		LinkedList<Station> d = new LinkedList<Station>();
+		d = new LinkedList<Station>();
 		//d.add(new Station("Complex ID", "Stop Name", "Borough", "D", "GTFS Latitude", "GTFS Longitude", "Transfer Options"));
 		d.add(new Station("210", "Norwood - 205 St", "Bx", "D", "40.874811", "-73.878855", "D"));
 		d.add(new Station("211", "Bedford Park Blvd", "Bx", "D", "40.873244", "-73.887138", "BD"));
@@ -503,7 +509,7 @@ public class Driver{
 		d.add(new Station("58", "Coney Island - Stillwell Av", "Bk", "D", "40.577422", "-73.981233", "DFNQ"));		
 
 		//in order now. swaps had to be made.
-		LinkedList<Station> f = new LinkedList<Station>();
+		f = new LinkedList<Station>();
 		f.add(new Station("254", "Jamaica - 179 St", "Q", "F", "40.712646", "-73.783817", "F"));
 		f.add(new Station("255", "169 St", "Q", "F", "40.71047", "-73.793604", "F"));
 		f.add(new Station("256", "Parsons Blvd", "Q", "F", "40.707564", "-73.803326", "F"));
@@ -552,8 +558,7 @@ public class Driver{
 
 
 		//now in order.
-		LinkedList<Station> m = new LinkedList<Station>();
-
+		m = new LinkedList<Station>();
 		m.add(new Station("261", "Forest Hills - 71 Av", "Q", "M", "40.721691", "-73.844521", "EFMR"));
 		m.add(new Station("262", "67 Av", "Q", "M", "40.726523", "-73.852719", "MR"));
 		m.add(new Station("263", "63 Dr - Rego Park", "Q", "M", "40.729846", "-73.861604", "MR"));
@@ -592,7 +597,7 @@ public class Driver{
 		m.add(new Station("108", "Middle Village - Metropolitan Av", "Q", "M", "40.711396", "-73.889601", "M"));
 
 		//in order thanks to process.py
-		LinkedList<Station> j = new LinkedList<Station>();
+		j = new LinkedList<Station>();
 		j.add(new Station("278", "Jamaica Center - Parsons/Archer", "Q", "J", "40.702147", "-73.801109", "EJZ"));
 		j.add(new Station("279", "Sutphin Blvd - Archer Av - JFK Airport", "Q", "J", "40.700486", "-73.807969", "EJZ"));
 		j.add(new Station("80", "121 St", "Q", "J", "40.700492", "-73.828294", "JZ"));
@@ -625,7 +630,7 @@ public class Driver{
 		j.add(new Station("107", "Broad St", "M", "J", "40.706476", "-74.011056", "JZ"));
 
 		//now complete
-		LinkedList<Station> z = new LinkedList<Station>();
+		z = new LinkedList<Station>();
 		z.add(new Station("278", "Jamaica Center - Parsons/Archer", "Q", "Z", "40.702147", "-73.801109", "EJZ"));
 		z.add(new Station("279", "Sutphin Blvd - Archer Av - JFK Airport", "Q", "Z", "40.700486", "-73.807969", "EJZ"));
 		z.add(new Station("80", "121 St", "Q", "Z", "40.700492", "-73.828294", "JZ"));
@@ -651,7 +656,7 @@ public class Driver{
 		z.add(new Station("107", "Broad St", "M", "Z", "40.706476", "-74.011056", "JZ"));
 
 		//Reflects full-time stops from July 31, 2017
-		LinkedList<Station> n = new LinkedList<Station>();
+		n = new LinkedList<Station>();
 		n.add(new Station("1", "Astoria - Ditmars Blvd", "Q", "N", "40.775036", "-73.912034", "NW"));
 		n.add(new Station("2", "Astoria Blvd", "Q", "N", "40.770258", "-73.917843", "NW"));
 		//station closed n.add(new Station("3", "30 Av", "Q", "N", "40.766779", "-73.921479", "NW"));
@@ -682,7 +687,7 @@ public class Driver{
 		n.add(new Station("58", "Coney Island - Stillwell Av", "Bk", "N", "40.577422", "-73.981233", "DFNQ"));
 
 		//Reflects full-time stops from July 31, 2017   
-		LinkedList<Station> q = new LinkedList<Station>();
+		q = new LinkedList<Station>();
 		q.add(new Station("475", "96 St", "M", "Q", "40.784318", "-73.947152", "Q"));
 		q.add(new Station("476", "86 St", "M", "Q", "40.777891", "-73.951787", "Q"));
 		q.add(new Station("477", "72 St", "M", "Q", "40.768799", "-73.958424", "Q"));
@@ -714,7 +719,7 @@ public class Driver{
 		q.add(new Station("58", "Coney Island - Stillwell Av", "Bk", "Q", "40.577422", "-73.981233", "DFNQ"));
 		
 
-		LinkedList<Station> r = new LinkedList<Station>();
+		r = new LinkedList<Station>();
 		//r.add(new Station("Complex ID", "Stop Name", "Borough", "R", "GTFS Latitude", "GTFS Longitude", "Transfer Options"));
 		r.add(new Station("261", "Forest Hills - 71 Av", "Q", "R", "40.721691", "-73.844521", "EFMR"));
 		r.add(new Station("262", "67 Av", "Q", "R", "40.726523", "-73.852719", "MR"));
@@ -786,7 +791,7 @@ public class Driver{
 		*/ 
 
 		//in order thanks to process.py, but some stations are now closed
-		LinkedList<Station> w = new LinkedList<Station>();
+		w = new LinkedList<Station>();
 		w.add(new Station("1", "Astoria - Ditmars Blvd", "Q", "W", "40.775036", "-73.912034", "NW"));
 		w.add(new Station("2", "Astoria Blvd", "Q", "W", "40.770258", "-73.917843", "NW"));
 		//station closed w.add(new Station("3", "30 Av", "Q", "W", "40.766779", "-73.921479", "NW"));
@@ -812,7 +817,7 @@ public class Driver{
 		w.add(new Station("635", "Whitehall St", "M", "W", "40.703087", "-74.012994", "RW1"));
 
 		//in order thanks to process.py
-		LinkedList<Station> l = new LinkedList<Station>();
+		l = new LinkedList<Station>();
 		l.add(new Station("618", "8 Av", "M", "L", "40.739777", "-74.002578", "LACE"));
 		l.add(new Station("601", "6 Av", "M", "L", "40.737335", "-73.996786", "LFM123"));
 		l.add(new Station("602", "Union Sq - 14 St", "M", "L", "40.734789", "-73.99073", "LNQRW456"));
@@ -839,7 +844,7 @@ public class Driver{
 		l.add(new Station("138", "Canarsie - Rockaway Pkwy", "Bk", "L", "40.646654", "-73.90185", "L"));
 
 		//had to add Church Av connection at the end
-		LinkedList<Station> g = new LinkedList<Station>();
+		g = new LinkedList<Station>();
 		g.add(new Station("175", "Hoyt - Schermerhorn Sts", "Bk", "G", "40.688484", "-73.985001", "ACG"));
 		g.add(new Station("236", "Bergen St", "Bk", "G", "40.686145", "-73.990862", "FG"));
 		g.add(new Station("237", "Carroll St", "Bk", "G", "40.680303", "-73.995048", "FG"));
@@ -861,5 +866,11 @@ public class Driver{
 		g.add(new Station("291", "Clinton - Washington Avs", "Bk", "G", "40.688089", "-73.966839", "G"));
 		g.add(new Station("292", "Fulton St", "Bk", "G", "40.687119", "-73.975375", "G"));
 		g.add(new Station("243", "Church Av", "Bk", "G", "40.644041", "-73.979678", "FG"));
-	}
+    
+    }
+
+    public static void main (String[] args){
+	Driver SubwayMap = new Driver();
+	System.out.println(SubwayMap.g);
+    }
 }
