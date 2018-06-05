@@ -205,8 +205,8 @@ public class Driver{
 		five.add(new Station("413", "Wall St", "M", "5", "40.707557", "-74.011862", "45"));
 		five.add(new Station("414", "Bowling Green", "M", "5", "40.704817", "-74.014065", "45"));
 		five.add(new Station("620", "Borough Hall", "Bk", "5", "40.692404", "-73.990151", "45R23"));
-		five.add(new Station("617", "Atlantic Av - Barclays Ctr", "Bk", "5", "40.68446", "-73.97689", "45DNRBQ23"));
 		five.add(new Station("337", "Nevins St", "Bk", "5", "40.688246", "-73.980492", "2345"));
+		five.add(new Station("617", "Atlantic Av - Barclays Ctr", "Bk", "5", "40.68446", "-73.97689", "45DNRBQ23"));
 		five.add(new Station("626", "Franklin Av", "Bk", "5", "40.670682", "-73.958131", "2345S"));
 		five.add(new Station("353", "President St", "Bk", "5", "40.667883", "-73.950683", "25"));
 		five.add(new Station("354", "Sterling St", "Bk", "5", "40.662742", "-73.95085", "25"));
@@ -845,14 +845,6 @@ public class Driver{
 
 		//had to add Church Av connection at the end
 		g = new LinkedList<Station>();
-		g.add(new Station("175", "Hoyt - Schermerhorn Sts", "Bk", "G", "40.688484", "-73.985001", "ACG"));
-		g.add(new Station("236", "Bergen St", "Bk", "G", "40.686145", "-73.990862", "FG"));
-		g.add(new Station("237", "Carroll St", "Bk", "G", "40.680303", "-73.995048", "FG"));
-		g.add(new Station("238", "Smith - 9 Sts", "Bk", "G", "40.67358", "-73.995959", "FG"));
-		g.add(new Station("608", "4 Av", "Bk", "G", "40.670272", "-73.989779", "FGR"));
-		g.add(new Station("240", "7 Av", "Bk", "G", "40.666271", "-73.980305", "FG"));
-		g.add(new Station("241", "15 St - Prospect Park", "Bk", "G", "40.660365", "-73.979493", "FG"));
-		g.add(new Station("242", "Fort Hamilton Pkwy", "Bk", "G", "40.650782", "-73.975776", "FG"));
 		g.add(new Station("606", "Court Sq", "Q", "G", "40.746554", "-73.943832", "GEM7"));
 		g.add(new Station("282", "21 St", "Q", "G", "40.744065", "-73.949724", "G"));
 		g.add(new Station("283", "Greenpoint Av", "Bk", "G", "40.731352", "-73.954449", "G"));
@@ -865,6 +857,14 @@ public class Driver{
 		g.add(new Station("290", "Classon Av", "Bk", "G", "40.688873", "-73.96007", "G"));
 		g.add(new Station("291", "Clinton - Washington Avs", "Bk", "G", "40.688089", "-73.966839", "G"));
 		g.add(new Station("292", "Fulton St", "Bk", "G", "40.687119", "-73.975375", "G"));
+		g.add(new Station("175", "Hoyt - Schermerhorn Sts", "Bk", "G", "40.688484", "-73.985001", "ACG"));
+		g.add(new Station("236", "Bergen St", "Bk", "G", "40.686145", "-73.990862", "FG"));
+		g.add(new Station("237", "Carroll St", "Bk", "G", "40.680303", "-73.995048", "FG"));
+		g.add(new Station("238", "Smith - 9 Sts", "Bk", "G", "40.67358", "-73.995959", "FG"));
+		g.add(new Station("608", "4 Av", "Bk", "G", "40.670272", "-73.989779", "FGR"));
+		g.add(new Station("240", "7 Av", "Bk", "G", "40.666271", "-73.980305", "FG"));
+		g.add(new Station("241", "15 St - Prospect Park", "Bk", "G", "40.660365", "-73.979493", "FG"));
+		g.add(new Station("242", "Fort Hamilton Pkwy", "Bk", "G", "40.650782", "-73.975776", "FG"));
 		g.add(new Station("243", "Church Av", "Bk", "G", "40.644041", "-73.979678", "FG"));
     
     }
