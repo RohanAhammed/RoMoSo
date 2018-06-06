@@ -38,5 +38,4 @@ Timeline:
 * Once this prerequisite is completed, then we will build SubwayLines, which will have an array of Stations that are linked. Methods like getNext() and getPrev() will need to be made.
 * We will need to find a way of linking subway stations on different lines, but after that then we can begin our depth-first and backtracking algorithm to find the best path.
 * Once this is functional, then we will work on the user-interface part of our project. The user should be able to select a start station and an end station, and receive an estimate of how much time traveling should take.
-* Other cool features can be added.
 
