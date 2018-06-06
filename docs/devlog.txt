@@ -53,6 +53,30 @@ yyyy-mm-dd
 <Member> :: <Thing member did.>
 <Member> :: <Thing member did.>
 ==============================================================
+2018-06-07
+--------------------------------------------------------------
+Clara ::
+Rohan :: 
+Soojin :: 
+==============================================================
+2018-06-06
+--------------------------------------------------------------
+Clara ::
+Rohan :: 
+Soojin :: 
+==============================================================
+2018-06-05
+--------------------------------------------------------------
+Clara :: Worked on changes to Driver.java
+Rohan :: Worked on Readme and fixing CSV file ordering.
+Soojin :: Worked on implementation of algorithm and plan.
+==============================================================
+2018-06-04
+--------------------------------------------------------------
+Clara :: Worked on identifying errors in CSV file ordering of stations.
+Rohan :: Worked on user interface.
+Soojin :: Worked on identifying errors in CSV file ordering of stations.
+==============================================================
 2018-06-03
 --------------------------------------------------------------
 Clara :: Added a transfers instance variable to Station so that it will be easier to check whether transfers can be made at a Station. This instance variable is a string with the lines to which transfers can be made at the Station. This required changes to Station, Station's constructor, and the python code. Stations at which transfers can be made are identified by whether they have the same station complex according to the csv, so the csv had to be processed differently and a column to the csv was added for every row in which there is a list of all the transfers possible.
