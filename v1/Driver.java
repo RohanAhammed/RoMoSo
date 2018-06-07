@@ -1015,28 +1015,37 @@ public class Driver{
 
     /****************
       int findShortestPath(Station, Station, int):
-      Returns the min number of stops from dep to dest
-
+      Returns the min number of stops from dep to dest by calling transfers, findShortestPathPrev, and findShortestPathNext
      ****************/
     public int findShortestPath(Station dep, Station dest, int curr){
-      if (dep == dest || dep == null ){
-        return -1;
-      }
-      curr += 1;
-      int prev = -1;
-      int next = -1;
-      if (dep.getNext() != null){
-        findShortestPathNext(dep.getNext(), dest, curr, "");
-      }
-      if (dep.getBefore() != null){
-        findShortestPathPrev(dep.getBefore(),dest, curr, "");
-      }
-      transfers(dep.getTransfers(), dest, curr, dep.getLine(), dep.getID(), "");
-      System.out.println(route);
-      return minNumStops;
-    }
-
-
+	//if dep is already equal to dest:
+	if (dep == dest || dep == null ){
+	    return -1;
+	}
+	//increase the number of stops by one
+	curr += 1;
+	//initialize prev and next, which will be compared at the end
+	int prev = -1;
+	int next = -1;
+	//if dep is not a terminus:
+	if (dep.getNext() != null){
+	    //find the shortest path from the next Station
+	    findShortestPathNext(dep.getNext(), dest, curr, "");
+	}
+	//if dep is no the start of a SubwayLine:
+	if (dep.getBefore() != null){
+	    //find the shortest path from the previous Station
+	    findShortestPathPrev(dep.getBefore(),dest, curr, "");
+	}
+	//Also take into account transfers:
+	transfers(dep.getTransfers(), dest, curr, dep.getLine(), dep.getID(), "");
+	//Print out route taken
+	System.out.println(route);
+	//return the min number of stops after investigating
+	return minNumStops;
+    }//end findShortestPath()
+    
+    
     public void findShortestPathNext(Station dep, Station dest, int curr, String _route){
       if ((dep == null)||(curr > minNumStops)){
         return;
