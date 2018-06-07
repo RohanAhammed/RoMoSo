@@ -1,13 +1,12 @@
 /***
 class SubwayLine simulates an entire subway line.
 ***/
-
+import cs1.Keyboard;
 import java.util.LinkedList;
 
 public class SubwayLine{
 
     //instance vars:
-    String _line; //letter or number
     Station _head;
     Station _tail;
     int size = 0;
@@ -29,11 +28,16 @@ public class SubwayLine{
         x.setBefore(_tail);
         _tail = x;
       }
+      size ++;
     }
 
-    public Station search(String name){
+    public Station get(int index){
       Station _temp = _head;
-      while (!_temp.getName().equals(name)){
+      if (index >= size){
+        System.out.println("Try Again!");
+        return get(Keyboard.readInt());
+      }
+      for (int x = 0; x < index; x++){
         _temp = _temp.getNext();
       }
       return _temp;
@@ -49,11 +53,13 @@ public class SubwayLine{
 
     public String toString(){
       String retStr = "";
+      int counter = 0;
       Station _temp = _head;
       while (_temp != null){
-        retStr += _temp.getName();
+        retStr += counter + ") " + _temp.getName();
         retStr += "\n";
         _temp = _temp.getNext();
+        counter++;
       }
       return retStr;
     }

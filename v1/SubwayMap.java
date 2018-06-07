@@ -10,16 +10,19 @@ public class SubwayMap{
 	SubwayLine depLine = map.search(Keyboard.readString());
   System.out.println(depLine);
 	System.out.println("Enter your departure station: ");
-	Station depStation = depLine.search(Keyboard.readString());
+	Station depStation = depLine.get(Keyboard.readInt());
 	//code to find depStation object
 	//String deptLine = Keyboard.readString();//might be unnecessary
 	System.out.println("What subway line is your destination station on?");
 	System.out.println("Enter one of the following subway lines: 1 2 3 4 5 6 7 A B C D E F G J L M N Q R W Z");
 	SubwayLine destLine = map.search(Keyboard.readString());
+  System.out.println(destLine);
 	System.out.println("Enter your destination station: ");
-	Station destStation = destLine.search(Keyboard.readString());
+	Station destStation = destLine.get(Keyboard.readInt());
       	//code to find destStation object
 	System.out.println("Finding the shortest route . . .");
+  System.out.println("from "+ depStation.getName() + " to " + destStation.getName());
   System.out.println(map.findShortestPath(depStation, destStation, 0));
+  System.out.println("");
     }
 }//end of public class

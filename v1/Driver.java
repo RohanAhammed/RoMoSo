@@ -14,6 +14,8 @@ public class Driver{
 
     //instance vars are the different lines:
     SubwayLine one, two, three, four, five, six, seven, a, c, e, b, d, f, m, n, q, r, w, j, z, l, g;
+    int minNumStops = 25;
+    String route = "";
 
     public Driver(){
 
@@ -618,7 +620,7 @@ public class Driver{
 		j.add(new Station("90", "Van Siclen Av", "Bk", "J", "40.678024", "-73.891688", "JZ"));
 		j.add(new Station("91", "Alabama Av", "Bk", "J", "40.676992", "-73.898654", "JZ"));
 		j.add(new Station("621", "Broadway Jct", "Bk", "J", "40.679498", "-73.904512", "JZLAC"));
-		j.add(new Station("93", "Chauncey St", "Bk", "J", "40.682893", "-73.910456", "JZ"));
+		j.add(new Station("93", "Chauncey St", "Bk", "J", "40.682893", "-73.910456", "J"));//#Changed
 		j.add(new Station("94", "Halsey St", "Bk", "J", "40.68637", "-73.916559", "J"));
 		j.add(new Station("95", "Gates Av", "Bk", "J", "40.68963", "-73.92227", "JZ"));
 		j.add(new Station("96", "Kosciuszko St", "Bk", "J", "40.693342", "-73.928814", "J"));
@@ -706,17 +708,17 @@ public class Driver{
 		q.add(new Station("617", "Atlantic Av - Barclays Ctr", "Bk", "Q", "40.68446", "-73.97689", "BQDNR2345"));
 		q.add(new Station("41", "7 Av", "Bk", "Q", "40.67705", "-73.972367", "BQ"));
 		q.add(new Station("42", "Prospect Park", "Bk", "Q", "40.661614", "-73.962246", "BQ"));
-		q.add(new Station("43", "Parkside Av", "Bk", "Q", "40.655292", "-73.961495", "BQ"));
+		q.add(new Station("43", "Parkside Av", "Bk", "Q", "40.655292", "-73.961495", "Q")); //#Changed
 		q.add(new Station("44", "Church Av", "Bk", "Q", "40.650527", "-73.962982", "BQ"));
-		q.add(new Station("45", "Beverley Rd", "Bk", "Q", "40.644031", "-73.964492", "BQ"));
-		q.add(new Station("46", "Cortelyou Rd", "Bk", "Q", "40.640927", "-73.963891", "BQ"));
+		q.add(new Station("45", "Beverley Rd", "Bk", "Q", "40.644031", "-73.964492", "Q")); //#Changed - B train not a transfer.
+		q.add(new Station("46", "Cortelyou Rd", "Bk", "Q", "40.640927", "-73.963891", "Q")); //#Changed
 		q.add(new Station("47", "Newkirk Plaza", "Bk", "Q", "40.635082", "-73.962793", "BQ"));
-		q.add(new Station("48", "Avenue H", "Bk", "Q", "40.62927", "-73.961639", "BQ"));
-		q.add(new Station("49", "Avenue J", "Bk", "Q", "40.625039", "-73.960803", "BQ"));
-		q.add(new Station("50", "Avenue M", "Bk", "Q", "40.617618", "-73.959399", "BQ"));
+		q.add(new Station("48", "Avenue H", "Bk", "Q", "40.62927", "-73.961639", "Q"));//#Changed
+		q.add(new Station("49", "Avenue J", "Bk", "Q", "40.625039", "-73.960803", "Q"));//#Changed
+		q.add(new Station("50", "Avenue M", "Bk", "Q", "40.617618", "-73.959399", "Q"));//#Changed
 		q.add(new Station("51", "Kings Hwy", "Bk", "Q", "40.60867", "-73.957734", "BQ"));
-		q.add(new Station("52", "Avenue U", "Bk", "Q", "40.5993", "-73.955929", "BQ"));
-		q.add(new Station("53", "Neck Rd", "Bk", "Q", "40.595246", "-73.955161", "BQ"));
+		q.add(new Station("52", "Avenue U", "Bk", "Q", "40.5993", "-73.955929", "Q")); //#Changed
+		q.add(new Station("53", "Neck Rd", "Bk", "Q", "40.595246", "-73.955161", "Q")); //#Changed
 		q.add(new Station("54", "Sheepshead Bay", "Bk", "Q", "40.586896", "-73.954155", "BQ"));
 		q.add(new Station("55", "Brighton Beach", "Bk", "Q", "40.577621", "-73.961376", "BQ"));
 		q.add(new Station("56", "Ocean Pkwy", "Bk", "Q", "40.576312", "-73.968501", "Q"));
@@ -951,87 +953,83 @@ public class Driver{
       //return null;
     }
 
-
-    int minNumStops = 1000000;
-    public int transfers(String _transfers, Station dest , int curr, String currLine, int currSt){
-      int min = minNumStops;
+    public void transfers(String _transfers, Station dest , int curr, String currLine, int currSt, String _route){
+      //int min = minNumStops;
       for (int x = 0; x < _transfers.length(); x++){
         String _line = _transfers.substring(x, x+1);
         if (!_line.equals(currLine) && _line != null){
           SubwayLine tran = search(_line); //finds the correct SubwayLine list.
           if (tran == null){
-            return min;
+            return;
           }
           Station next = tran.search(currSt); //finds the same station but on the other line
-          int tryTran = findShortestPath(next, dest, ++curr);
-          if (tryTran < min && tryTran != 0){
-            min = tryTran;
+          if (next.getNext() != null){
+            //_route += "Going to" + next.getNext().getName()+"\n";
+            findShortestPathNext(next.getNext(), dest, curr, _route);
+          }
+          if (next.getBefore() != null){
+            //_route += "Going to" + next.getBefore().getName()+"\n";
+            findShortestPathPrev(next.getBefore(),dest, curr, _route);
           }
         }
       }
-      return min;
-    }
-
-    public int minWithout0(int one, int two){
-      if (one == 0 || two == 0){
-        if (one == 0 && two == 0) {
-          return -1;
-        }
-        else if (one == 0){
-          return two;
-        }
-        else {
-          return one;
-        }
-      }
-      return Math.min(one, two);
     }
 
     public int findShortestPath(Station dep, Station dest, int curr){
-      if (dep == dest){
-        return 0;
+      if (dep == dest || dep == null ){
+        return -1;
       }
       curr += 1;
-      int Prev = 1000000;
+      int prev = -1;
+      int next = -1;
       if (dep.getNext() != null){
-        minNumStops = findShortestPathNext(dep.getNext(), dest, curr);
+        findShortestPathNext(dep.getNext(), dest, curr, "");
       }
       if (dep.getBefore() != null){
-        Prev = findShortestPathPrev(dep.getBefore(),dest, curr++);
+        findShortestPathPrev(dep.getBefore(),dest, curr, "");
       }
-      return minWithout0(Prev, minNumStops);
+      transfers(dep.getTransfers(), dest, curr, dep.getLine(), dep.getID(), "");
+      System.out.println(route);
+      return minNumStops;
     }
-    public int findShortestPathNext(Station dep, Station dest, int curr){
-      if (dep == null){
-        return 0;
+    public void findShortestPathNext(Station dep, Station dest, int curr, String _route){
+      if ((dep == null)||(curr > minNumStops)){
+        return;
       }
-      System.out.println(dep.getID());
-      System.out.println(dest.getID());
+      _route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
+      //System.out.println(dep.getID());
+      //System.out.println(dest.getID());
       if (dep.getID() == dest.getID()){
-        System.out.println(curr);
-        return curr;
+        //System.out.println(curr);
+        if (curr < minNumStops){
+          route = _route;
+          minNumStops = curr;
+        }
       }
       String possibleTransfers = dep.getTransfers();
-      int min = findShortestPathNext(dep.getNext(), dest, ++curr);
-      System.out.println("tyrNext -" + min + "curr "+curr);
-      int min2 = transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID());
-      return minWithout0(min, min2);
+      findShortestPathNext(dep.getNext(), dest, ++curr, _route);
+      //System.out.println("tyrNext -" + min + "curr "+curr);
+      transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
+      //return minWithout0(min, min2);
     }
-    public int findShortestPathPrev(Station dep, Station dest, int curr){
-      System.out.println(dep.getID());
-      System.out.println(dest.getID());
-      if (dep == null){
-        return 0;
+    public void findShortestPathPrev(Station dep, Station dest, int curr, String _route){
+      if ((dep == null)||(curr > minNumStops)){
+        return;
       }
+      _route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
+      //System.out.println(dep.getID());
+      //System.out.println(dest.getID());
       if (dep.getID() == dest.getID()){
-        System.out.println(curr);
-        return curr;
+        //System.out.println(curr);
+        if (curr < minNumStops){
+          route = _route;
+          minNumStops = curr;
+        }
       }
       String possibleTransfers = dep.getTransfers();
-      int min = findShortestPathNext(dep.getBefore(), dest, ++curr);
-      System.out.println("tyrNext -" + min + "curr "+curr);
-      int min2 = transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID());
-      return minWithout0(min, min2);
+      findShortestPathPrev(dep.getBefore(), dest, ++curr, _route);
+      //System.out.println("tyrNext -" + min + "curr "+curr);
+      transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
     }
 
     //public static void main (String[] args){
