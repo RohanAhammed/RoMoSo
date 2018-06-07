@@ -1,4 +1,3 @@
-
 import cs1.Keyboard;//used for user input
 public class SubwayMap{
     public static void main(String[] args){
@@ -7,12 +6,12 @@ public class SubwayMap{
 	System.out.println("Enter one of the following subway lines: 1 2 3 4 5 6 7 A B C D E F G J L M N Q R W Z");
 	String depStation = Keyboard.readString();
 	System.out.println("Enter your departure station: ");
-	String depStation = Keyboard.readString();
+	depStation = Keyboard.readString();
 	//code to find depStation object
 	//String deptLine = Keyboard.readString();//might be unnecessary
 	System.out.println("What subway line is your destination station on?");
 	System.out.println("Enter one of the following subway lines: 1 2 3 4 5 6 7 A B C D E F G J L M N Q R W Z");
-	String depStation = Keyboard.readString();
+	depStation = Keyboard.readString();
 	System.out.println("Enter your destination station: ");
 	String destStation = Keyboard.readString();
       	//code to find destStation object

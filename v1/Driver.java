@@ -19,6 +19,7 @@ public class Driver{
 
     public Driver(){
 
+	//the one line:
   	one = new SubwayLine();
   	one.add(new Station("293", "Van Cortlandt Park - 242 St", "Bx", "1", "40.889248", "-73.898583", "1"));
   	one.add(new Station("294", "238 St", "Bx", "1", "40.884667", "-73.90087", "1"));
@@ -59,6 +60,7 @@ public class Driver{
   	one.add(new Station("329", "Rector St", "M", "1", "40.707513", "-74.013783", "1"));
   	one.add(new Station("635", "South Ferry", "M", "1", "40.702068", "-74.013664", "1RW"));
 
+	//the two line:
   	//had to swap two sections to make two train in order
   	two = new SubwayLine();
   	two.add(new Station("416", "Wakefield - 241 St", "Bx", "2", "40.903125", "-73.85062", "2"));
