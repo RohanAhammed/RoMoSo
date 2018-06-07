@@ -50,7 +50,7 @@ public class SubwayMap{
 	//choose destination station:                                                           
         System.out.println("Enter the number that corresponds to your destination station: ");
         int destStat = Keyboard.readInt();
-        Station destStation = depLine.get(destStat);
+        Station destStation = destLine.get(destStat);
         while (destStation == null){
             System.out.println("Please enter a valid station number…");
             destStat = Keyboard.readInt();

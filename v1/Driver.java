@@ -968,15 +968,13 @@ public class Driver{
       if (line.equals("L")){
         return l;
       }
-      if (line.equals ("S")){
-        return null;
+      else {
+	  //System.out.println("Try Again");
+	  //return search(Keyboard.readString());
+	  return null;
       }
-      System.out.println("Try Again");
-      return search(Keyboard.readString());
-      //continue...
-      //return null;
     }
-
+    
     public void transfers(String _transfers, Station dest , int curr, String currLine, int currSt, String _route){
       //int min = minNumStops;
       for (int x = 0; x < _transfers.length(); x++){

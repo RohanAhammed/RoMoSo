@@ -32,15 +32,19 @@ public class SubwayLine{
     }
 
     public Station get(int index){
-      Station _temp = _head;
-      if (index >= size){
-        System.out.println("Try Again!");
-        return get(Keyboard.readInt());
-      }
-      for (int x = 0; x < index; x++){
-        _temp = _temp.getNext();
-      }
-      return _temp;
+	if (index >= size || index < 0){
+	    System.out.println("Try Again!");
+	    return null;
+	}
+	else {
+	    Station temp = _head;
+	    int ctr = 0;
+	    while (ctr < index){
+		temp = temp.getNext();
+		ctr += 1;
+	    }
+	    return temp;
+	}
     }
 
     public Station search(int id){
