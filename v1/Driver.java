@@ -12,9 +12,12 @@ import cs1.Keyboard;
 
 public class Driver{
 
-    //instance vars are the different lines:
+    //instance vars:
+    //the different lines:
     SubwayLine one, two, three, four, five, six, seven, a, c, e, b, d, f, m, n, q, r, w, j, z, l, g;
+    //Starting with a cap of 25 stops
     int minNumStops = 25;
+    //route string is what will be printed once path has been found
     String route = "";
 
     public Driver(){
@@ -1046,49 +1049,59 @@ public class Driver{
     }//end findShortestPath()
     
     
+    /************
+     void findShortestPathNext(Station, Station, curr, String):
+     Called by findShortestPath method
+     Finds shortest path from this station without going back to prev
+     ***********/
     public void findShortestPathNext(Station dep, Station dest, int curr, String _route){
-      if ((dep == null)||(curr > minNumStops)){
-        return;
-      }
-      _route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
-      //System.out.println(dep.getID());
-      //System.out.println(dest.getID());
-      if (dep.getID() == dest.getID()){
-        //System.out.println(curr);
-        if (curr < minNumStops){
-          route = _route;
-          minNumStops = curr;
-        }
-      }
-      String possibleTransfers = dep.getTransfers();
-      findShortestPathNext(dep.getNext(), dest, ++curr, _route);
-      //System.out.println("tyrNext -" + min + "curr "+curr);
-      transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
-      //return minWithout0(min, min2);
-    }
+	//if dep is null, or if the current number of stops has already exceeded the minNumStops (in which case it is not the best path) then stop
+	if ((dep == null)||(curr > minNumStops)){
+	    return;
+	}
+	_route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
+	if (dep.getID() == dest.getID()){
+	    if (curr < minNumStops){
+		//Include in the _route String this transfer, because it is valid
+		route = _route;
+		minNumStops = curr;
+	    }
+	}
+	String possibleTransfers = dep.getTransfers();
+	findShortestPathNext(dep.getNext(), dest, ++curr, _route);
+	//System.out.println("tyrNext -" + min + "curr "+curr);
+	transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);	
+    }//end findShortestPathNext()
+    
+    /*******
+     void findShortestPathPrev(Station, Station, int, String)
+     Called initially by findShortestPath method
+     Finds shortest path from this station without going to next
+    ********/
     public void findShortestPathPrev(Station dep, Station dest, int curr, String _route){
-      if ((dep == null)||(curr > minNumStops)){
-        return;
-      }
-      _route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
-      //System.out.println(dep.getID());
-      //System.out.println(dest.getID());
-      if (dep.getID() == dest.getID()){
-        //System.out.println(curr);
-        if (curr < minNumStops){
-          route = _route;
-          minNumStops = curr;
-        }
-      }
-      String possibleTransfers = dep.getTransfers();
-      findShortestPathPrev(dep.getBefore(), dest, ++curr, _route);
-      //System.out.println("tyrNext -" + min + "curr "+curr);
-      transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
+	///if dep is null, or if the current number of stops has already exceeded the minNumStops (in which case it is not the best path) then stop  
+	if ((dep == null)||(curr > minNumStops)){
+	    return;
+	}
+	_route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
+	//if dep matches dest
+	if (dep.getID() == dest.getID()){
+	    if (curr < minNumStops){
+		//Include in the _route String this transfer, because it is valid
+		route = _route;
+		minNumStops = curr;
+	    }
+	}	
+	String possibleTransfers = dep.getTransfers();
+	//investigate shortest path from the previous Station
+	findShortestPathPrev(dep.getBefore(), dest, ++curr, _route);
+	//investigate shortest path from transfers
+	transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
     }
-
+    
     //public static void main (String[] args){
-	//Driver SubwayMap = new Driver();
-	//System.out.println(SubwayMap.g.search("4 Av"));
-
-
+    //Driver SubwayMap = new Driver();
+    //System.out.println(SubwayMap.g.search("4 Av"));
+    
+    
 }
