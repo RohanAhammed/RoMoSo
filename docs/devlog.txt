@@ -61,19 +61,19 @@ Soojin ::
 ==============================================================
 2018-06-06
 --------------------------------------------------------------
-Clara ::
+Clara :: Worked on creating a more approachable user interface, and also worked on SubwayMap.java. Considered a different approach to solving the problem of getting from one station to another using Djikstra's algorithm, but Soojin fixed the code for the depth-first search so that it worked and then this was agreed upon as the code we would be using.
 Rohan :: 
-Soojin :: 
+Soojin :: Worked on creating a mmore approachable user interface, and fixed the code in SubwayMap.java so that it works with finding the best path considering the minimum number of stops.
 ==============================================================
 2018-06-05
 --------------------------------------------------------------
-Clara :: Worked on changes to Driver.java
+Clara :: Worked on changes to Driver.java.
 Rohan :: Worked on Readme and fixing CSV file ordering.
 Soojin :: Worked on implementation of algorithm and plan.
 ==============================================================
 2018-06-04
 --------------------------------------------------------------
-Clara :: Worked on identifying errors in CSV file ordering of stations.
+Clara :: Worked on identifying errors in CSV file ordering of stations, and making improvements to Driver.java.
 Rohan :: Worked on user interface.
 Soojin :: Worked on identifying errors in CSV file ordering of stations.
 ==============================================================
