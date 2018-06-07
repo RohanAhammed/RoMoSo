@@ -81,29 +81,5 @@ public class Station{
     }
 
 
-    public static void main (String[] args){
-      /*
-	Driver SubwayMap = new Driver();
-	for (Station i: SubwayMap.g){
-	    System.out.println(i);
-	    System.out.println(i.getID());
-	    //if transfers contains f:
-	    if (i.getTransfers().indexOf("F") >= 0){
-		//iterate through F line
-		for (Station x: SubwayMap.f){
-		    //if the two ID's match:
-		    if (i.canTransfer(x)){
-			System.out.print("Transfer to: ");
-			System.out.println(x);
-			//break, because there is at most on ID match
-			break;
-		    }
-		}
-	    }
-	    System.out.println(i.getTransfers());
-	    System.out.println("++++++++++++++++++");
-	}
-  */
-    }
 
 }
