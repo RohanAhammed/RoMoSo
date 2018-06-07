@@ -47,12 +47,17 @@ public class SubwayLine{
 	}
     }
 
-    public Station search(int id){
-      Station _temp = _head;
-      while (_temp.getID() != id){
-        _temp = _temp.getNext();
-      }
-      return _temp;
+    public Station search(int id){	
+	Station temp = _head;
+	Station retval = null;
+	while (temp != null){
+	    if (temp.getID() == id){
+		retval = temp;
+		break;
+	    }
+	    temp = temp.getNext();
+	}
+	return retval;
     }
 
     public String toString(){
@@ -67,7 +72,6 @@ public class SubwayLine{
       }
       return retStr;
     }
-
 
     //methods:
 }

@@ -32,6 +32,7 @@ public class SubwayMap{
         }
         System.out.print("==========================\nYou have selected ");
         System.out.println(depStation);
+	System.out.println("possible next stops:\n" + depStation.getTransArr());
 
 	System.out.println("What subway line is your destination station on?");
 	System.out.println("Enter one of the following subway lines: \n1 2 3\t4 5 6\t7\tA C E\t B D F M \tN Q R W \tJ Z\tG\tL");

@@ -23,7 +23,7 @@ public class Driver{
     public Driver(){
 
 	        //the one line:
-  	        one = new SubwayLine();
+	        one = new SubwayLine();
 		one.add(new Station("293", "Van Cortlandt Park - 242 St", "Bx", "1", "40.889248", "-73.898583", "1"));
 		one.add(new Station("294", "238 St", "Bx", "1", "40.884667", "-73.90087", "1"));
 		one.add(new Station("295", "231 St", "Bx", "1", "40.878856", "-73.904834", "1"));
@@ -897,8 +897,56 @@ public class Driver{
 		g.add(new Station("242", "Fort Hamilton Pkwy", "Bk", "G", "40.650782", "-73.975776", "FG"));
 		g.add(new Station("243", "Church Av", "Bk", "G", "40.644041", "-73.979678", "FG"));
 
+
+		//now that all of the SubwayLines have been created…
+		createPointers();
     }
 
+    //iterates through all of the SubwayLines, and creates pointers for every Station in every SubwayLine
+    public void createPointers(){
+	SubwayLine[] container = {one, two, three, four, five, six, seven, a, c, e, b, d, f, m, n, q, r, w, j, z, l, g};
+	for (SubwayLine x: container){
+	    createPointersLine(x);
+	}
+    }
+
+    //creates an array  of pointers to all of the Stations available from one Station 
+    //sets this array as an instance variable for every Station
+    public void createPointersLine(SubwayLine name){
+	Station[][] array;	
+	Station x = name.get(0);
+	while (x != null){
+	    //System.out.println("Current station " +x);
+	    String transfers = x.getTransfers();
+	    //System.out.println("Available transfers: " + transfers);
+	    int rowNum = 0;
+	    array = new Station[transfers.length()][2];	    
+	    //for every transfer:
+	    for (int ctr = 0; ctr < transfers.length(); ctr++){
+		//identify line
+		String line = x.getTransfers().substring(ctr, ctr + 1);
+		//System.out.println(line);
+		//search for line
+		SubwayLine connection = search(line);
+		//System.out.println(connection);
+		if (connection != null){
+		    //System.out.println(connection.search(x.getID()));		    
+		    if (connection.search(x.getID()) != null){
+			Station eq = connection.search(x.getID());
+			if (eq.getBefore() != null)
+			    array[rowNum][0] = eq.getBefore();
+			if (eq.getNext() != null)
+			    array[rowNum][1] = eq.getNext();
+			rowNum += 1;
+		    }
+		}
+	    }
+	    x.setTransfPointers(array);
+	    x = x.getNext();
+	}
+    }
+		
+    
     /**********************
      SubwayLine search(String):
      returns the SubwayLine object that corresponds to the String name.
@@ -1098,10 +1146,6 @@ public class Driver{
 	//investigate shortest path from transfers
 	transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
     }
-    
-    //public static void main (String[] args){
-    //Driver SubwayMap = new Driver();
-    //System.out.println(SubwayMap.g.search("4 Av"));
     
     
 }
