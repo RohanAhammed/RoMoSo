@@ -1041,7 +1041,7 @@ public class Driver{
     		    return;
     		}
     		//finds the same station but on the identified SubwayLine:
-        System.out.println(_line + "id == " + currSt);
+        //System.out.println(_line + "id == " + currSt);
     		Station next = tran.search(currSt);
         /*
         Station[][] _temp = currentSt.getTransArray();
@@ -1150,6 +1150,6 @@ public class Driver{
         }
 
 
-    
+
 
 }
