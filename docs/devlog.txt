@@ -58,8 +58,8 @@ yyyy-mm-dd
 2018-06-07
 --------------------------------------------------------------
 Clara :: Group decided to go forth with Dijkstra's algorithm for finding the shortest path. It turns out that what had been agreed upon earlier was very inefficient when going from a downtown station to an uptown station, which oftentimes resulted in no result. Therefore, implemented a minheap (many thanks to the library) and implemented dijkstra's algorithm. In order to implement Dijkstra's algorithm, also created a 2D array transfers attribute for each station, which represents all of the possible previous and next stations from the current station. 
-Rohan :: 
-Soojin :: 
+Rohan :: Cleaned up code and repo, made all instance variables private, commented on code and worked on UML. Tested implementation of Dijkstra's algorithm vs depth first algorithm
+Soojin :: Worked on possibly using geographic coordinates to possibly evaluate the time it takes between stations rather than just the stops. Worked on flow chart. Worked to work out bugs with algorithm.
 ==============================================================
 2018-06-06
 --------------------------------------------------------------
