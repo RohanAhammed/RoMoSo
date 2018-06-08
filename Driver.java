@@ -9,7 +9,7 @@ Clara Mohri, Rohan Ahammed, Soojin Choi
 
 // Algorithm for finding shortest path between two subway stations.
 // 1. imports map.
-// 2. creates data structures for subway graph (matrices
+// 2. creates data structures for subway graph (matrices)
 // 3. single-source shortest-paths algorithm.
 // 4. returns shortest path. 
 
@@ -24,7 +24,7 @@ public class Driver{
     private SubwayLine one, two, three, four, five, six, seven, a, c, e, b, d, f, m, n, q, r, w, j, z, l, g;
     //route string is what will be printed once path has been found
     private String route = "";
-    private  LinkedList<Station> path;    
+    private LinkedList<Station> path;    
     private ALHeap queue;
 
     public Driver(){
