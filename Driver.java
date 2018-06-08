@@ -1100,7 +1100,8 @@ public class Driver{
 	    retStr = s + "\n" + retStr;
 	    s = s.getAnte();
 	}
-	retStr = source + retStr;
+	retStr = source + "\n" + retStr;
+	retStr = "Here is your suggested progression of stops: \n" + retStr; 
 	retStr += "Num stops: " + dest.getDist();
 	return retStr;
     }
