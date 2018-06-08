@@ -49,17 +49,17 @@ public class Station{
     public String getTransfers(){
 	return _transfers;
     }
-    public String toString(){
-	return _line + ": " + _name;
-    }
+
     public int getID(){
 	return _id;
     }
     public Station[][] getTransArr(){
 	return _transferPointers;
     }
-
     //other methods
+    public String toString(){
+	return _line + ": " + _name;
+    }
     public void setTransfPointers(Station[][] array){
 	_transferPointers = array;
     }
@@ -94,6 +94,8 @@ public class Station{
     public void setDist(float dist){
 	_dist = dist;
     }
+    //Ante gives the antecedent of a station along the shortest path
+    //Ante therefore helps trace back shortest path and the end of the algorithm.
     public void setAnte(Station x){
 	_ante = x;
     }

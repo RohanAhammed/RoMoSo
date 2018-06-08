@@ -7,6 +7,12 @@ Clara Mohri, Rohan Ahammed, Soojin Choi
 //Afterwards, we made the decision to have this in the form a class called Subway Map where all of the subway lines are a linked list. Some of the python code has been altered, but we could not rewrite the Python script because this would change the order of the stations, setting us back.
 
 
+// Algorithm for finding shortest path between two subway stations.
+// 1. imports map.
+// 2. creates data structures for subway graph (matrices
+// 3. single-source shortest-paths algorithm.
+// 4. returns shortest path. 
+
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import cs1.Keyboard;
@@ -16,8 +22,6 @@ public class Driver{
     //instance vars:
     //the different lines:
     SubwayLine one, two, three, four, five, six, seven, a, c, e, b, d, f, m, n, q, r, w, j, z, l, g;
-    //Starting with a cap of 25 stops
-    int minNumStops = 20;
     //route string is what will be printed once path has been found
     String route = "";
     LinkedList<Station> path;    
@@ -1034,7 +1038,13 @@ public class Driver{
 	source.setDist(0);	
     }
     
-    //dijkstra's algo takes in source station and destination station
+    //Dijkstra's algo takes in source station and destination station
+    //Current implementation does not use destination station
+    //Later can be optimized to use destination station
+    //The algorithm maintains a priority queue (implemented as binary heap).
+    //At each round, it extracts the station with the best distance.
+    //It then 'relaxes' the outgoing edges of that station.
+    //The complexity is O(n log m), with n the no of stations and m number of edges when using binary heaps.
     public void SSShortDist(Station source, Station dest){
 	initDist(source);
 	SubwayLine[] all = {one, two, three, four, five, six, seven, a, c, e, b, d, f, m, n, q, r, w, j, z, l, g};
@@ -1063,17 +1073,26 @@ public class Driver{
 	
     }
 
-    //relaxation method
+    //Relaxation: checks if shorter path found.
+    //If yes, updates tentative shortest distance Dist(v) and antecedent station.
     public Station relax(Station u, Station v){
+	// here edge weight is 1.
+	// instead edge weight based on Euclidean distance of the stations can be used.
+	// this feature can be straightforwardly added.
+	// one can also straightforwardly incorporate a transfer cost by checking getLine of u and v
 	float w = 1;
 	if (v.getDist() > u.getDist() + w){
 	    v.setDist(u.getDist() + w);	    	    
 	    v.setAnte(u);
+	    // heapify needed since tentative distance has been updated.
 	    queue.minheapify(0);
 	}
 	return v;
     }
 
+    // Prints path by using antecedent station of each station, set by relax.
+    // Starting from destination station.
+    // Path is therefore written in reverse.
     public String printPath(Station source, Station dest){
 	String retStr = "";
 	Station s = dest;
