@@ -1049,7 +1049,7 @@ public class Driver{
     }
 
     public double timeTaken(Station next, Station start){
-      System.out.println(dist(next, start));
+      //System.out.println(dist(next, start));
       return (dist(next, start)) / speed ;
     }
 
@@ -1201,7 +1201,7 @@ if (tran == null){
     return;
 }
 //finds the same station but on the identified SubwayLine:
-System.out.println(_line + "id == " + currSt);
+//System.out.println(_line + "id == " + currSt);
 Station next = tran.search(currSt);
 /*
 Station[][] _temp = currentSt.getTransArray();
