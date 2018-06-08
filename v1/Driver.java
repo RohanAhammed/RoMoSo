@@ -1027,288 +1027,129 @@ public class Driver{
       }
     }
 
-    public double dist(Station next , Station start){
-      double Axcor = next.getX();
-      double Aycor = next.getY();
-      double Bxcor = start.getX();
-      double Bycor = start.getY();
-
-      double dlat = Math.toRadians((Axcor - Bxcor));
-      double dlong = Math.toRadians((Aycor - Bycor));
-
-      Bxcor = Math.toRadians(Bxcor);
-      Axcor = Math.toRadians(Axcor);
-
-      double a = haversin(dlat) + Math.cos(Bycor) * Math.cos(Axcor) * haversin(dlong);
-      double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt( 1 - a));
-
-      return 6371 * c;
-    }
-    public double haversin(double val){
-      return Math.pow(Math.sin(val/2), 2);
-    }
-
-    public double timeTaken(Station next, Station start){
-      //System.out.println(dist(next, start));
-      return (dist(next, start)) / speed ;
-    }
-
-
-
-    /************
-     method void transfers(String, Station, int, String, int, String):
-
-    ***********/
-    /********************************FOR MIN STOPS**********************
     public void transfers(String _transfers, Station dest , int curr, String currLine, int currSt, String _route){
-	//for all of the possible transfers at this station:
-	for (int x = 0; x < _transfers.length(); x++){
-	    //identify the line:
-	    String _line = _transfers.substring(x, x+1);
-	    //if this is a different line from the current line:
-	    if (!_line.equals(currLine) && _line != null){
-		//identify the appropriate SubwayLine
-		SubwayLine tran = search(_line); //finds the correct SubwayLine list.
-		//if it's one of the SubwayLines we've excluded (ie Station Island) then stop
-		if (tran == null){
-		    return;
-		}
-		//finds the same station but on the identified SubwayLine:
-    //System.out.println(_line + "id == " + currSt);
-		Station next = tran.search(currSt);
-    Station[][] _temp = currentSt.getTransArray();
-    int rownum = 0;
-    while (rownum < _temp.length){
-      //if this Station's next is not equal to null: (in other words, it is not a terminus
-  		if (next.getNext() != null){
-  		    //find the shortest path from the next station
-  		    findShortestPathNext(next.getNext(), dest, curr, _route);
-  		}
-  		//if this Station's before is not equal to null: (in other words, it is not the start of the line)
-  		if (next.getBefore() != null){
-  		    //find the shortest path from the previous station
-  		    findShortestPathPrev(next.getBefore(), dest, curr, _route);
-      }
-		}
-	}
+    	//for all of the possible transfers at this station:
+    	for (int x = 0; x < _transfers.length(); x++){
+    	    //identify the line:
+    	    String _line = _transfers.substring(x, x+1);
+    	    //if this is a different line from the current line:
+    	    if (!_line.equals(currLine) && _line != null){
+    		//identify the appropriate SubwayLine
+    		SubwayLine tran = search(_line); //finds the correct SubwayLine list.
+    		//if it's one of the SubwayLines we've excluded (ie Station Island) then stop
+    		if (tran == null){
+    		    return;
+    		}
+    		//finds the same station but on the identified SubwayLine:
+        System.out.println(_line + "id == " + currSt);
+    		Station next = tran.search(currSt);
+        /*
+        Station[][] _temp = currentSt.getTransArray();
+        int rownum = 0;
+        while (rownum < _temp.length){*/
+          //if this Station's next is not equal to null: (in other words, it is not a terminus
+      		if (next.getNext() != null){
+      		    //find the shortest path from the next station
+      		    findShortestPathNext(next.getNext(), dest, curr, _route);
+      		}
+      		//if this Station's before is not equal to null: (in other words, it is not the start of the line)
+      		if (next.getBefore() != null){
+      		    //find the shortest path from the previous station
+      		    findShortestPathPrev(next.getBefore(), dest, curr, _route);
+          }
+    		}
+    	}
 
 
 
 
-    }//end transfers method
-
-*/
-    /****************
-      int findShortestPath(Station, Station, int):
-      Returns the min number of stops from dep to dest by calling transfers, findShortestPathPrev, and findShortestPathNext
-     ****************/
-     /*
-    public int findShortestPath(Station dep, Station dest, int curr){
-	//if dep is already equal to dest:
-	if (dep == dest || dep == null ){
-	    return -1;
-	}
-	//increase the number of stops by one
-	curr += 1;
-	//initialize prev and next, which will be compared at the end
-	int prev = -1;
-	int next = -1;
-	//if dep is not a terminus:
-	if (dep.getNext() != null){
-	    //find the shortest path from the next Station
-	    findShortestPathNext(dep.getNext(), dest, curr, "");
-	}
-	//if dep is no the start of a SubwayLine:
-	if (dep.getBefore() != null){
-	    //find the shortest path from the previous Station
-	    findShortestPathPrev(dep.getBefore(),dest, curr, "");
-	}
-	//Also take into account transfers:
-	transfers(dep.getTransfers(), dest, curr, dep.getLine(), dep.getID(), "");
-	//Print out route taken
-	System.out.println(route);
-	//return the min number of stops after investigating
-	return minNumStops;
-    }//end findShortestPath()
-*/
-
-    /************
-     void findShortestPathNext(Station, Station, curr, String):
-     Called by findShortestPath method
-     Finds shortest path from this station without going back to prev
-     ***********/
-     /*
-    public void findShortestPathNext(Station dep, Station dest, int curr, String _route){
-	//if dep is null, or if the current number of stops has already exceeded the minNumStops (in which case it is not the best path) then stop
-	if ((dep == null)||(curr >= minNumStops)){
-	    return;
-	}
-	_route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
-	if (dep.getID() == dest.getID()){
-	    if (curr < minNumStops){
-		//Include in the _route String this transfer, because it is valid
-		route = _route;
-		minNumStops = curr;
-	    }
-	}
-	String possibleTransfers = dep.getTransfers();
-	findShortestPathNext(dep.getNext(), dest, ++curr, _route);
-	//System.out.println("tyrNext -" + min + "curr "+curr);
-	transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
-    }//end findShortestPathNext()
-
-*/
-    /*******
-     void findShortestPathPrev(Station, Station, int, String)
-     Called initially by findShortestPath method
-     Finds shortest path from this station without going to next
-    ********/
-    /*
-    public void findShortestPathPrev(Station dep, Station dest, int curr, String _route){
-	///if dep is null, or if the current number of stops has already exceeded the minNumStops (in which case it is not the best path) then stop
-	if ((dep == null)||(curr >= minNumStops)){
-	    return;
-	}
-	_route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
-	//if dep matches dest
-	if (dep.getID() == dest.getID()){
-	    if (curr < minNumStops){
-		//Include in the _route String this transfer, because it is valid
-		route = _route;
-		minNumStops = curr;
-	    }
-	}
-	String possibleTransfers = dep.getTransfers();
-	//investigate shortest path from the previous Station
-	findShortestPathPrev(dep.getBefore(), dest, ++curr, _route);
-	//investigate shortest path from transfers
-	transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
-    }
-
-*/
-
-public void transfers(String _transfers, Station dest , double curr, String currLine ,int currSt, String _route){
-//for all of the possible transfers at this station:
-for (int x = 0; x < _transfers.length(); x++){
-  //identify the line:
-  String _line = _transfers.substring(x, x+1);
-  //if this is a different line from the current line:
-  if (!_line.equals(currLine) && _line != null){
-//identify the appropriate SubwayLine
-SubwayLine tran = search(_line); //finds the correct SubwayLine list.
-//if it's one of the SubwayLines we've excluded (ie Station Island) then stop
-if (tran == null){
-    return;
-}
-//finds the same station but on the identified SubwayLine:
-//System.out.println(_line + "id == " + currSt);
-Station next = tran.search(currSt);
-/*
-Station[][] _temp = currentSt.getTransArray();
-int rownum = 0;
-while (rownum < _temp.length){*/
-  //if this Station's next is not equal to null: (in other words, it is not a terminus
-  if (next.getNext() != null){
-      curr += timeTaken(next.getNext(), next);
-      //find the shortest path from the next station
-      findShortestPathNext(next.getNext(), dest, curr, _route);
-  }
-  //if this Station's before is not equal to null: (in other words, it is not the start of the line)
-  if (next.getBefore() != null){
-      curr += timeTaken(next.getBefore(), next);
-      //find the shortest path from the previous station
-      findShortestPathPrev(next.getBefore(), dest, curr, _route);
-  }
-}
-}
+        }//end transfers method
 
 
+        /****************
+          int findShortestPath(Station, Station, int):
+          Returns the min number of stops from dep to dest by calling transfers, findShortestPathPrev, and findShortestPathNext
+         ****************/
+        public int findShortestPath(Station dep, Station dest, int curr){
+    	//if dep is already equal to dest:
+    	if (dep == dest || dep == null ){
+    	    return -1;
+    	}
+    	//increase the number of stops by one
+    	curr += 1;
+    	//initialize prev and next, which will be compared at the end
+    	int prev = -1;
+    	int next = -1;
+    	//if dep is not a terminus:
+    	if (dep.getNext() != null){
+    	    //find the shortest path from the next Station
+    	    findShortestPathNext(dep.getNext(), dest, curr, "");
+    	}
+    	//if dep is no the start of a SubwayLine:
+    	if (dep.getBefore() != null){
+    	    //find the shortest path from the previous Station
+    	    findShortestPathPrev(dep.getBefore(),dest, curr, "");
+    	}
+    	//Also take into account transfers:
+    	transfers(dep.getTransfers(), dest, curr, dep.getLine(), dep.getID(), "");
+    	//Print out route taken
+    	System.out.println(route);
+    	//return the min number of stops after investigating
+    	return minNumStops;
+        }//end findShortestPath()
 
 
-}//end transfers method
+        /************
+         void findShortestPathNext(Station, Station, curr, String):
+         Called by findShortestPath method
+         Finds shortest path from this station without going back to prev
+         ***********/
+        public void findShortestPathNext(Station dep, Station dest, int curr, String _route){
+    	//if dep is null, or if the current number of stops has already exceeded the minNumStops (in which case it is not the best path) then stop
+    	if ((dep == null)||(curr >= minNumStops)){
+    	    return;
+    	}
+    	_route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
+    	if (dep.getID() == dest.getID()){
+    	    if (curr < minNumStops){
+    		//Include in the _route String this transfer, because it is valid
+    		route = _route;
+    		minNumStops = curr;
+    	    }
+    	}
+    	String possibleTransfers = dep.getTransfers();
+    	findShortestPathNext(dep.getNext(), dest, ++curr, _route);
+    	//System.out.println("tyrNext -" + min + "curr "+curr);
+    	transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
+        }//end findShortestPathNext()
+
+        /*******
+         void findShortestPathPrev(Station, Station, int, String)
+         Called initially by findShortestPath method
+         Finds shortest path from this station without going to next
+        ********/
+        public void findShortestPathPrev(Station dep, Station dest, int curr, String _route){
+    	///if dep is null, or if the current number of stops has already exceeded the minNumStops (in which case it is not the best path) then stop
+    	if ((dep == null)||(curr >= minNumStops)){
+    	    return;
+    	}
+    	_route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
+    	//if dep matches dest
+    	if (dep.getID() == dest.getID()){
+    	    if (curr < minNumStops){
+    		//Include in the _route String this transfer, because it is valid
+    		route = _route;
+    		minNumStops = curr;
+    	    }
+    	}
+    	String possibleTransfers = dep.getTransfers();
+    	//investigate shortest path from the previous Station
+    	findShortestPathPrev(dep.getBefore(), dest, ++curr, _route);
+    	//investigate shortest path from transfers
+    	transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
+        }
 
 
-/****************
-  int findShortestPath(Station, Station, int):
-  Returns the min number of stops from dep to dest by calling transfers, findShortestPathPrev, and findShortestPathNext
- ****************/
-public double findShortestPath(Station dep, Station dest, double curr){
-//if dep is already equal to dest:
-if (dep == dest || dep == null ){
-  return -1;
-}
-//initialize prev and next, which will be compared at the end
-int prev = -1;
-int next = -1;
-//if dep is not a terminus:
-if (dep.getNext() != null){
-  curr += timeTaken(dep.getNext(), dep);
-  //find the shortest path from the next Station
-  findShortestPathNext(dep.getNext(), dest, curr, "");
-}
-//if dep is no the start of a SubwayLine:
-if (dep.getBefore() != null){
-  curr += timeTaken(dep.getBefore(), dep);
-  //find the shortest path from the previous Station
-  findShortestPathPrev(dep.getBefore(),dest, curr, "");
-}
-//Also take into account transfers:
-transfers(dep.getTransfers(), dest, curr, dep.getLine(), dep.getID(), "");
-//Print out route taken
-System.out.println(route);
-//return the min number of stops after investigating
-return minTime;
-}//end findShortestPath()
-
-
-/************
- void findShortestPathNext(Station, Station, curr, String):
- Called by findShortestPath method
- Finds shortest path from this station without going back to prev
- ***********/
-public void findShortestPathNext(Station dep, Station dest, double curr, String _route){
-//if dep is null, or if the current number of stops has already exceeded the minNumStops (in which case it is not the best path) then stop
-if ((dep == null)||(curr >= minTime)){
-  return;
-}
-_route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
-if (dep.getID() == dest.getID()){
-  if (curr < minTime){
-//Include in the _route String this transfer, because it is valid
-route = _route;
-minTime = curr;
-  }
-}
-String possibleTransfers = dep.getTransfers();
-findShortestPathNext(dep.getNext(), dest, curr + timeTaken(dep.getNext(),dep), _route);
-//System.out.println("tyrNext -" + min + "curr "+curr);
-transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
-}//end findShortestPathNext()
-
-/*******
- void findShortestPathPrev(Station, Station, int, String)
- Called initially by findShortestPath method
- Finds shortest path from this station without going to next
-********/
-public void findShortestPathPrev(Station dep, Station dest, double curr, String _route){
-  //if dep is null, or if the current number of stops has already exceeded the minNumStops (in which case it is not the best path) then stop
-  if ((dep == null)||(curr >= minTime)){
-      return;
-  }
-  _route += "Go to " + dep.getName() + " on the " + dep.getLine() + "\n";
-  if (dep.getID() == dest.getID()){
-      if (curr < minTime){
-    //Include in the _route String this transfer, because it is valid
-    route = _route;
-    minTime = curr;
-      }
-  }
-  String possibleTransfers = dep.getTransfers();
-  findShortestPathNext(dep.getBefore(), dest, curr + timeTaken(dep.getBefore(),dep), _route);
-  //System.out.println("tyrNext -" + min + "curr "+curr);
-  transfers(possibleTransfers, dest ,curr, dep.getLine(), dep.getID(), _route);
-}
-
-
+    
 
 }

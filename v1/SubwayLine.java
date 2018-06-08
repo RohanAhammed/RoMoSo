@@ -47,7 +47,7 @@ public class SubwayLine{
 	}
     }
 
-    public Station search(int id){	
+    public Station search(int id){
 	Station temp = _head;
 	Station retval = null;
 	while (temp != null){
@@ -65,7 +65,7 @@ public class SubwayLine{
 	int counter = 0;
 	Station _temp = _head;
 	while (_temp != null){
-	    retStr += counter + ") " + _temp.getName();
+	    retStr += "|- " + counter + " -> " + _temp.getName();
 	    retStr += "\n";
 	    _temp = _temp.getNext();
 	    counter++;
