@@ -21,11 +21,11 @@ public class Driver{
 
     //instance vars:
     //the different lines:
-    SubwayLine one, two, three, four, five, six, seven, a, c, e, b, d, f, m, n, q, r, w, j, z, l, g;
+    private SubwayLine one, two, three, four, five, six, seven, a, c, e, b, d, f, m, n, q, r, w, j, z, l, g;
     //route string is what will be printed once path has been found
-    String route = "";
-    LinkedList<Station> path;    
-    ALHeap queue;
+    private String route = "";
+    private  LinkedList<Station> path;    
+    private ALHeap queue;
 
     public Driver(){
 
@@ -1097,12 +1097,12 @@ public class Driver{
 	String retStr = "";
 	Station s = dest;
 	while (s != null && s.getID() != source.getID()){
-	    retStr = s + "\n" + retStr;
+	    retStr = s.printUser() + "\n" + retStr;
 	    s = s.getAnte();
 	}
-	retStr = source + "\n" + retStr;
+	retStr = "Starting from " + source + "\n" + retStr;
 	retStr = "Here is your suggested progression of stops: \n" + retStr; 
-	retStr += "Num stops: " + dest.getDist();
+	retStr += "Number of stops: " + dest.getDist();
 	return retStr;
     }
     

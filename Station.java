@@ -5,23 +5,23 @@ Class Station simulates a singular train station
 public class Station{
 
     //instance vars:
-    int _id;
-    String _name;
-    String _line; //could be number of letter, but as a String
-    double _xcor;
-    double _ycor;
-    String _borough; /*boroughs:
-		       Bx
-		       M
-		       Q
-		       Bk
-		       (Staten Island not included)*/
-    String _transfers; //indicates which other subway lines include this Station
-    Station[][] _transferPointers;
-    Station before;
-    Station next;
-    float _dist;
-    Station _ante;
+    private int _id;
+    private String _name;
+    private String _line; //could be number of letter, but as a String
+    private double _xcor;
+    private double _ycor;
+    private String _borough; /*boroughs:
+			       Bx
+			       M
+			       Q
+			       Bk
+			       (Staten Island not included)*/
+    private String _transfers; //indicates which other subway lines include this Station
+    private  Station[][] _transferPointers;
+    private Station before;
+    private  Station next;
+    private float _dist;
+    private  Station _ante;
 
     //constructor
     public Station(String id, String name, String borough, String line, String xcor, String ycor, String transfers){
@@ -106,6 +106,10 @@ public class Station{
     public float compareTo(Station other){
 	float retVal = _dist - other.getDist();
 	return retVal;
+    }
+
+    public String printUser(){
+	return "Go to " + _name + " on the " + _line;
     }
 
 

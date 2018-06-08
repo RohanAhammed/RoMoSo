@@ -2,14 +2,13 @@
 class SubwayLine simulates an entire subway line.
 ***/
 import cs1.Keyboard;
-import java.util.LinkedList;
 
 public class SubwayLine{
 
     //instance vars:
-    Station _head;
-    Station _tail;
-    int size = 0;
+    private Station _head;
+    private Station _tail;
+    private int size = 0;
 
 
     //constructor:

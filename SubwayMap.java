@@ -2,11 +2,12 @@
 Class SubwayMap is in fact the Driver class for Transfer Reccommendations
 ***/
 import cs1.Keyboard;//used for user input
-public class SubwayMap{
+public class SubwayMap{//contains everything in the interface
 
     public static void main(String[] args){
 	Driver map = new Driver();
 	System.out.println("Welcome to the interactive SubwayMap, a program that tells you the fastest route between 2 MTA train stations");
+	System.out.println("It is HIGHLY recommended you have a MTA subway map to look at as you are using this program . . . unless you know your trains of course");
 	System.out.println("What subway line is your departing station on?");
 	System.out.println("Enter one of the following subway lines: \n1 2 3\t4 5 6\t7\tA C E\t B D F M \tN Q R W \tJ Z\tG\tL");
 
