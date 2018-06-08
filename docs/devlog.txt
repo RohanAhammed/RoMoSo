@@ -17,7 +17,7 @@ One of the obstacles we faced was to figure out how to incorporate all of the st
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Sometimes the algorithm tells the user to make transfers that make no sense in real life but make sense to the algorithm. It is much preferable to stay on the same line rather than transfer but the algorithm doesn't consider that so even if the departing and destination stations are on the same line, the algorithm will stay to transfer to a different train in the same groups of lines (aka transfer to the 3 from the 2). Another issue is that certain destinations and departures take a very long time because of the nature of how the recursion is set up and backtracking works.
+Sometimes the algorithm tells the user to make transfers that make no sense in real life but make sense to the algorithm. It is much preferable to stay on the same line rather than transfer but the algorithm doesn't consider that so even if the departing and destination stations are on the same line, the algorithm will stay to transfer to a different train in the same groups of lines (aka transfer to the 3 from the 2). Another issue is that certain destinations and departures take a very long time because of the nature of how the recursion is set up and backtracking works. Additionally, if there are 2 possible lines that can be taken to a station, the program will return back the first one tested, but in reality, there would be multiple options. If someone looks at a subway map, this will be obvious to them.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

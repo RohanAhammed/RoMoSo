@@ -55,14 +55,14 @@ public class SubwayMap{
         while (destStation == null){
             System.out.println("Please enter a valid station number…");
             destStat = Keyboard.readInt();
-            destStation = depLine.get(depStat);
+            destStation = destLine.get(destStat);
         }
         System.out.print("==========================\nYou have selected ");
         System.out.println(destStation);
 
 	System.out.println("Finding the shortest route . . .");
 	System.out.println("from "+ depStation.getName() + " to " + destStation.getName());
-	System.out.println(map.findShortestPath(depStation, destStation, 0));
+	System.out.println("Number of stations: " + map.findShortestPath(depStation, destStation, 0));
 	System.out.println("");
     }
 }//end of public class
